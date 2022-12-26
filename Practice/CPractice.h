@@ -1,6 +1,6 @@
 #pragma once
 #include "Headers.h"
-
+#include "Enum.h"
 class CPractice
 {
 public:

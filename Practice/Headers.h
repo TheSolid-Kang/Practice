@@ -23,5 +23,9 @@
 #include <boost/any.hpp>
 
 #include "CIO.hpp"
-
-
+#include "KMP.h"
+#include "CMyEtc.hpp"
+#include "CFileMgr.hpp"
+#include "CFIOMgr.hpp"
+#include "CINIMgr.hpp"
+#include "StringBuilder.h"
