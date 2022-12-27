@@ -34,6 +34,9 @@
     <Filter Include="01.CPractice\00.CPractice_221226">
       <UniqueIdentifier>{8cc49644-d63e-425b-9c2f-af7034284e83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.CPractice\02.CPractice_221227">
+      <UniqueIdentifier>{8345082c-4db2-4aa9-a994-e867f67ab695}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="CPractice_221226.cpp">
       <Filter>01.CPractice\00.CPractice_221226</Filter>
+    </ClCompile>
+    <ClCompile Include="CPractice_221227.cpp">
+      <Filter>01.CPractice\02.CPractice_221227</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="CMyEtc.hpp">
       <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CPractice_221227.h">
+      <Filter>01.CPractice\02.CPractice_221227</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

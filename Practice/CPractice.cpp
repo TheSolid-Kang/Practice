@@ -24,6 +24,6 @@ int CPractice::execute()
 
 	release();
 	auto memory_info = _CrtDumpMemoryLeaks();
-	std::tcout << _T("메모리: ") << memory_info << std::endl;
+	std::tcout << _T("Memory: ") << memory_info << std::endl;
 	return result;
 }
