@@ -25,8 +25,8 @@ void Afx_PrintTitle()
 {
 	std::list<TString> list_title;
 
-	list_title.emplace_back(_T("1. 221226_baekjoon 문제지 출력 구상"));
-	list_title.emplace_back(_T(""));
+	list_title.emplace_back(_T("1. Practice 1. baekjoon 문제지 출력 구상"));
+	list_title.emplace_back(_T("2. Practice 2. "));
 	list_title.emplace_back(_T(""));
 	list_title.emplace_back(_T(""));
 	list_title.emplace_back(_T("99.EXIT"));

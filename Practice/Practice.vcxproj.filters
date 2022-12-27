@@ -31,10 +31,10 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="01.CPractice\00.CPractice_221226">
+    <Filter Include="01.CPractice\00.CPractice_1">
       <UniqueIdentifier>{8cc49644-d63e-425b-9c2f-af7034284e83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.CPractice\02.CPractice_221227">
+    <Filter Include="01.CPractice\02.CPractice_2">
       <UniqueIdentifier>{8345082c-4db2-4aa9-a994-e867f67ab695}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -48,11 +48,11 @@
     <ClCompile Include="CPracticeMgr.cpp">
       <Filter>97.DesignPattern</Filter>
     </ClCompile>
-    <ClCompile Include="CPractice_221226.cpp">
-      <Filter>01.CPractice\00.CPractice_221226</Filter>
+    <ClCompile Include="CPractice_1.cpp">
+      <Filter>01.CPractice\00.CPractice_1</Filter>
     </ClCompile>
-    <ClCompile Include="CPractice_221227.cpp">
-      <Filter>01.CPractice\02.CPractice_221227</Filter>
+    <ClCompile Include="CPractice_2.cpp">
+      <Filter>01.CPractice\02.CPractice_2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,8 +80,8 @@
     <ClInclude Include="StringBuilder.h">
       <Filter>98.Headers</Filter>
     </ClInclude>
-    <ClInclude Include="CPractice_221226.h">
-      <Filter>01.CPractice\00.CPractice_221226</Filter>
+    <ClInclude Include="CPractice_1.h">
+      <Filter>01.CPractice\00.CPractice_1</Filter>
     </ClInclude>
     <ClInclude Include="CFileMgr.hpp">
       <Filter>98.Headers</Filter>
@@ -95,8 +95,8 @@
     <ClInclude Include="CMyEtc.hpp">
       <Filter>98.Headers</Filter>
     </ClInclude>
-    <ClInclude Include="CPractice_221227.h">
-      <Filter>01.CPractice\02.CPractice_221227</Filter>
+    <ClInclude Include="CPractice_2.h">
+      <Filter>01.CPractice\02.CPractice_2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,18 +1,18 @@
-#include "CPractice_221226.h"
+#include "CPractice_1.h"
 
-CPractice_221226::CPractice_221226()
+CPractice_1::CPractice_1()
 	: m_uniq_map_func(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 	, m_uniq_map_testfunc(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 
 {
 }
 
-CPractice_221226::~CPractice_221226()
+CPractice_1::~CPractice_1()
 {
 
 }
 
-void CPractice_221226::initialize()
+void CPractice_1::initialize()
 {
 	auto arr_title = build_array(_T("1. CFIO 테스트")
 		, _T("2. CFileMgr 테스트")
@@ -27,12 +27,12 @@ void CPractice_221226::initialize()
 	init_testfunc();
 }
 
-void CPractice_221226::render() noexcept
+void CPractice_1::render() noexcept
 {
 	std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&](const TString& _title) { std::tcout << _title << std::endl; });
 }
 
-int CPractice_221226::update()
+int CPractice_1::update()
 {
 	switch (CIO::ask_and_return_integer())
 	{
@@ -56,12 +56,12 @@ int CPractice_221226::update()
 	return 0;
 }
 
-void CPractice_221226::release()
+void CPractice_1::release()
 {
 
 }
 
-void CPractice_221226::init_func(void)
+void CPractice_1::init_func(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
@@ -90,7 +90,7 @@ void CPractice_221226::init_func(void)
 		[&](const void* _p_void) -> std::shared_ptr<void> {return nullptr; }));
 }
 
-void CPractice_221226::init_testfunc(void)
+void CPractice_1::init_testfunc(void)
 {
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {

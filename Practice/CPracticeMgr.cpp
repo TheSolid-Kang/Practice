@@ -1,7 +1,8 @@
 #include "CPracticeMgr.h"
 #include "Enum.h"
 
-#include "CPractice_221226.h"
+#include "CPractice_1.h"
+#include "CPractice_2.h"
 
 IMPLEMENT_SINGLETON(CPracticeMgr);
 
@@ -12,8 +13,11 @@ void CPracticeMgr::SetPractice(const int& _practice_num) noexcept
 
 	switch (_practice_num)
 	{
-	case static_cast<int>(PRACTICE_NUM::PN221226):
-		m_uniq_practice = std::make_unique<CPractice_221226>();
+	case static_cast<int>(PRACTICE_NUM::PN_1):
+		m_uniq_practice = std::make_unique<CPractice_1>();
+		break;
+	case static_cast<int>(PRACTICE_NUM::PN_2):
+		m_uniq_practice = std::make_unique<CPractice_2>();
 		break;
 
 

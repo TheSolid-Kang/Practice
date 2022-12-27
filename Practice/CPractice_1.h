@@ -1,10 +1,10 @@
 #pragma once
 #include "CPractice.h"
-class CPractice_221226 :public CPractice
+class CPractice_1 :public CPractice
 {
 public:
-	CPractice_221226();
-	~CPractice_221226();
+	CPractice_1();
+	~CPractice_1();
 
 private:
 	enum class FUNC : size_t {ONE = 1, TWO, THREE, FOUR, FIVE};
@@ -28,7 +28,7 @@ protected:
 	template<typename... Args>
 	auto build_array(Args&&... _args)
 		-> std::array<std::common_type_t<Args...>, sizeof ...(_args)>
-	{ return { std::forward < std::common_type_t<Args...>>((Args&&)_args)... }; }
+	{ return { std::forward<std::common_type_t<Args...>>((Args&&)_args)... }; }
 
 
 };

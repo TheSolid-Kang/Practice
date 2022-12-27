@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -141,8 +141,8 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp" />
     <ClCompile Include="CPracticeMgr.cpp" />
-    <ClCompile Include="CPractice_221226.cpp" />
-    <ClCompile Include="CPractice_221227.cpp" />
+    <ClCompile Include="CPractice_1.cpp" />
+    <ClCompile Include="CPractice_2.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,8 +153,8 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClInclude Include="CMyEtc.hpp" />
     <ClInclude Include="CPractice.h" />
     <ClInclude Include="CPracticeMgr.h" />
-    <ClInclude Include="CPractice_221226.h" />
-    <ClInclude Include="CPractice_221227.h" />
+    <ClInclude Include="CPractice_1.h" />
+    <ClInclude Include="CPractice_2.h" />
     <ClInclude Include="DEFINE_MGR.hpp" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Headers.h" />

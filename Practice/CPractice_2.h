@@ -1,11 +1,11 @@
 #pragma once
 #include "CPractice.h"
-class CPractice_221227 : 
+class CPractice_2 : 
 	public CPractice
 {
 public: 
-	CPractice_221227();
-	~CPractice_221227();
+	CPractice_2();
+	~CPractice_2();
 
 private:
 	enum class FUNC : int { ONE = 1, TWO, THREE, FOUR, FIVE};
