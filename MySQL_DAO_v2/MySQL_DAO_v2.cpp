@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 #include "MySQL_DAO_v2.hpp"
 
-std::unique_ptr<sql::ResultSet> MySQL_DAO_v2::GetResultSet(const std::string& _query) {
+std::unique_ptr<sql::ResultSet> MySQL_DAO_v2::GetResultSet(const TString& _query) {
 	sql::Driver* driver = nullptr;
 	sql::Connection* con = nullptr;
 	sql::Statement* stmt = nullptr;
@@ -12,7 +12,7 @@ std::unique_ptr<sql::ResultSet> MySQL_DAO_v2::GetResultSet(const std::string& _q
 		con = (*driver).connect("tcp://127.0.0.1:3306", "root", "root");
 		stmt = (*con).createStatement();
 		(*con).setSchema("test");
-		std::unique_ptr<sql::ResultSet> uniq_res((*stmt).executeQuery(_query));
+		std::unique_ptr<sql::ResultSet> uniq_res((*stmt).executeQuery(std::string(_query.begin(), _query.end())));
 		_uniq_res = std::move(uniq_res);
 	}
 	catch (sql::SQLException _e) {
@@ -44,19 +44,22 @@ std::unique_ptr<sql::ResultSet> MySQL_DAO_v2::GetResultSet(const std::string& _q
 }
 
 
-std::vector<std::vector<std::string>> MySQL_DAO_v2::GetDataContainer(const std::string& _query, int _column_cnt) {
-	auto uniq_res = GetResultSet("SELECT id, label FROM test ORDER BY id ASC");
-	std::vector<std::vector<std::string>> vec_result((*uniq_res).rowsCount());
+std::vector<std::vector<TString>> MySQL_DAO_v2::GetDataContainer(const TString& _query, int _column_cnt) {
+	auto uniq_res = GetResultSet(_T("SELECT id, label FROM test ORDER BY id ASC"));
+	std::vector<std::vector<TString>> vec_result((*uniq_res).rowsCount());
 	int i = 0;
 	while ((*uniq_res).next()) {
 		for (int column_cnt = 1; column_cnt <= _column_cnt; ++column_cnt)
-			vec_result[i].push_back((*uniq_res).getString(column_cnt));
+		{
+			auto sql_str = (*uniq_res).getString(column_cnt);
+			vec_result[i].push_back(std::wstring(sql_str.asStdString().begin(), sql_str.asStdString().end()));
+		}
 		i++;
 	}
 	return vec_result;
 }
 
-void MySQL_DAO_v2::Execute(const std::string& _query)
+void MySQL_DAO_v2::Execute(const TString& _query)
 {
 	sql::Driver* driver = nullptr;
 	sql::Connection* con = nullptr;
@@ -66,7 +69,7 @@ void MySQL_DAO_v2::Execute(const std::string& _query)
 		con = (*driver).connect("tcp://127.0.0.1:3306", "root", "root");
 		stmt = (*con).createStatement();
 		(*con).setSchema("test");
-		(*stmt).execute(_query);
+		(*stmt).execute(std::string(_query.begin(), _query.end()));
 	}
 	catch (sql::SQLException _e) {
 		std::cout << "# ERR: SQLException in " << __FILE__;
@@ -92,7 +95,7 @@ void MySQL_DAO_v2::Execute(const std::string& _query)
 #endif
 }
 
-bool MySQL_DAO_v2::ExecuteTransaction(std::vector<std::string> _vec_query)
+bool MySQL_DAO_v2::ExecuteTransaction(std::vector<TString> _vec_query)
 {
 	bool is_commit = false;
 	sql::Driver* driver = nullptr;
@@ -105,7 +108,7 @@ bool MySQL_DAO_v2::ExecuteTransaction(std::vector<std::string> _vec_query)
 		(*con).setSchema("test");
 		stmt->execute("START TRANSACTION;");
 		for (auto _query : _vec_query)
-			(*stmt).execute(_query);
+			(*stmt).execute(std::string(_query.begin(), _query.end()));
 
 		is_commit = true;
 	}

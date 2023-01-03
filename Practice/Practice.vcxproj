@@ -42,13 +42,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\x64\Release\</OutDir>
-    <IntDir>$(SolutionDir)bin\x64\Release\</IntDir>
+    <OutDir>$(SolutionDir)bin\x64\$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)bin\x64\$(Configuration)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\x64\Release\</OutDir>
-    <IntDir>$(SolutionDir)bin\x64\Release\</IntDir>
+    <OutDir>$(SolutionDir)bin\x64\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\x64\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -166,6 +166,11 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClInclude Include="Headers.h" />
     <ClInclude Include="KMP.h" />
     <ClInclude Include="StringBuilder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySQL_DAO_v2\MySQL_DAO_v2.vcxproj">
+      <Project>{c7ba1df4-1a3a-4bdf-a4f4-77e4f05a0450}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
