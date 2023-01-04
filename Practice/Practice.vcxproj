@@ -149,6 +149,9 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClCompile Include="CPracticeMgr.cpp" />
     <ClCompile Include="CPractice_1.cpp" />
     <ClCompile Include="CPractice_2.cpp" />
+    <ClCompile Include="CTempFunction.cpp" />
+    <ClCompile Include="CTempFunctionMgr.cpp" />
+    <ClCompile Include="CTempFunction_File.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +164,9 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClInclude Include="CPracticeMgr.h" />
     <ClInclude Include="CPractice_1.h" />
     <ClInclude Include="CPractice_2.h" />
+    <ClInclude Include="CTempFunction.h" />
+    <ClInclude Include="CTempFunctionMgr.h" />
+    <ClInclude Include="CTempFunction_File.h" />
     <ClInclude Include="DEFINE_MGR.hpp" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Headers.h" />

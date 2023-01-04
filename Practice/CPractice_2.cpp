@@ -1,10 +1,10 @@
 #include "CPractice_2.h"
-#include "../MySQL_DAO_v2/MySQL_DAO_v2.hpp"
+//#include "../MySQL_DAO_v2/MySQL_DAO_v2.hpp"
 CPractice_2::CPractice_2()
 	: m_uniq_map_func(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 	, m_uniq_map_testfunc(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 {
-	auto uniq_ResultSet = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM test"));
+	//auto uniq_ResultSet = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM test"));
 
 }
 

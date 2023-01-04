@@ -7,9 +7,6 @@
     <Filter Include="01.CPractice">
       <UniqueIdentifier>{5fcf1c89-886c-496d-b02b-f0cec0a703a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.">
-      <UniqueIdentifier>{b20ee1ea-0b9f-4807-9544-58d9f26c9a1e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="97.DesignPattern">
       <UniqueIdentifier>{022d7468-b599-48f2-adf5-8a4e45257780}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,12 @@
     <Filter Include="01.CPractice\02.CPractice_2">
       <UniqueIdentifier>{8345082c-4db2-4aa9-a994-e867f67ab695}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.CTempFunction">
+      <UniqueIdentifier>{b20ee1ea-0b9f-4807-9544-58d9f26c9a1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.CTempFunction\00.CTempFunction_File">
+      <UniqueIdentifier>{d9c477d4-5f49-4263-8a76-c01bc56f3f94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -53,6 +56,15 @@
     </ClCompile>
     <ClCompile Include="CPractice_2.cpp">
       <Filter>01.CPractice\02.CPractice_2</Filter>
+    </ClCompile>
+    <ClCompile Include="CTempFunctionMgr.cpp">
+      <Filter>97.DesignPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="CTempFunction.cpp">
+      <Filter>02.CTempFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="CTempFunction_File.cpp">
+      <Filter>02.CTempFunction\00.CTempFunction_File</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +109,15 @@
     </ClInclude>
     <ClInclude Include="CPractice_2.h">
       <Filter>01.CPractice\02.CPractice_2</Filter>
+    </ClInclude>
+    <ClInclude Include="CTempFunctionMgr.h">
+      <Filter>97.DesignPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="CTempFunction.h">
+      <Filter>02.CTempFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="CTempFunction_File.h">
+      <Filter>02.CTempFunction\00.CTempFunction_File</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
