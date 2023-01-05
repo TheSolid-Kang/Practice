@@ -6,7 +6,9 @@
 void Afx_PrintTitle();
 
 int main() {
+#if UNICODE
 	std::locale::global(std::locale(".UTF-8"));
+#endif
 	auto& instance = (*CPracticeMgr::GetInstance());
 	
 	do {
