@@ -3,6 +3,7 @@
 
 CTempFunction::CTempFunction()
 {
+	m_vec_func = std::vector<std::function<std::shared_ptr<void>(const void*)>>(static_cast<size_t>(COMMON_FUNC::END));
 }
 
 CTempFunction::~CTempFunction()

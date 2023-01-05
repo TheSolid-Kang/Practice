@@ -16,8 +16,15 @@ public:
 	CTempFunction();
 	~CTempFunction();
 
+protected:
+	enum class COMMON_FUNC : size_t { PRINT_TITLE, END};
+	enum class COMMON_SELECTED_FUNC : size_t { PRINT_TITLE, END };
+	enum class TEST : size_t;
+	std::list<TString> m_list_title;
+	std::vector<std::function<std::shared_ptr<void>(const void*)>> m_vec_func;
+	std::vector<std::function<std::shared_ptr<void>(const void*)>> m_vec_selected_func;
 
-
+protected:
 	// ITempFunction을(를) 통해 상속됨
 	virtual void initialize() override;
 	void render(const TString& _str) override;
