@@ -132,8 +132,22 @@ void CPractice_2::init_func(void)
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR)
 		, [&](const void* _p_void) {
+			//0. 확인 할 폴더 설정
 			auto path = CFileMgr::GetOpenFolderDialg(_T("C:\\Users\\hoppi\\Desktop\\TheSolid_KANG\\Work\\ZVIEW\\정리 된 Raw File 목록\\영상처리 Param 별 구분\\"));
+
+			//1. 폴더 내 들어있는 모든 파일들의 경로 컨테이너에 담기
 			auto vec_file_name = CFIOMgr::GetRecursiveFilesInDirectory(path);
+			std::map<TString, std::list<TString>> chmap_name;
+			//2. 
+			for (auto _file_path : vec_file_name)
+			{
+				size_t folder_index = _file_path.find_last_of(_T("\\/"));
+				size_t file_name_size = _file_path.length() - folder_index;
+				auto folder_path = _file_path.substr(0, folder_index);
+				auto file_name = _file_path.substr(folder_index, file_name_size);
+				chmap_name[file_name].emplace_back(folder_path);
+			}
+
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FIVE)
