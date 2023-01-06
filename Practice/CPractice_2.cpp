@@ -22,7 +22,7 @@ void CPractice_2::initialize()
 		_T("1. MySQL DB 연결 확인")
 		, _T("2. 전체 Caleb 읽기, accumulate 사용 실해")
 		, _T("3. 전체 Caleb 읽기")
-		, _T("")
+		, _T("4. 파일 확인")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT") );
@@ -88,7 +88,6 @@ void CPractice_2::init_func(void)
 			}
 
 			return nullptr; }));
-	
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::THREE)
 		, [&](const void* _p_void) {
 
@@ -105,7 +104,6 @@ void CPractice_2::init_func(void)
 			list_search_key.emplace_back(_T("은아"));
 			list_search_key.emplace_back(_T("결혼"));
 			list_search_key.emplace_back(_T("사랑"));
-			list_search_key.emplace_back(_T("절망"));
 
 			//2. Caleb 내에서 검색 횟수 확인
 			//  1) 컨테이너에서 caleb_path 선택
@@ -134,7 +132,9 @@ void CPractice_2::init_func(void)
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR)
 		, [&](const void* _p_void) {
-			
+			auto path = CFileMgr::GetOpenFolderDialg(_T("C:\\Users\\hoppi\\Desktop\\TheSolid_KANG\\Work\\ZVIEW\\정리 된 Raw File 목록\\영상처리 Param 별 구분\\"));
+			auto vec_file_name = CFIOMgr::GetRecursiveFilesInDirectory(path);
+
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FIVE)
 		, [&](const void* _p_void) {
@@ -155,7 +155,9 @@ void CPractice_2::init_testfunc(void)
 			(*m_uniq_map_func)[static_cast<size_t>(FUNC::THREE)](nullptr);
 	return nullptr; }));
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::FOUR)
-		, [&](const void* _p_void) {return nullptr; }));
+		, [&](const void* _p_void) {
+			(*m_uniq_map_func)[static_cast<size_t>(FUNC::FOUR)](nullptr);
+			return nullptr; }));
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::FIVE)
 		, [&](const void* _p_void) {return nullptr; }));
 

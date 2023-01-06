@@ -68,7 +68,7 @@ public:
 
 	}
 
-	static TString GetOpenFolderDialg() {
+	static TString GetOpenFolderDialg(TString _path = (TString)_T("D:\\") ){
 
 		auto BrowseCallbackProc = [](HWND hWnd, UINT uMsg, LPARAM lParam, LPARAM lpData) -> int CALLBACK{
 			switch (uMsg)
@@ -104,7 +104,8 @@ public:
 
 		BROWSEINFO browse_info;
 		TCHAR szTemp[MAX_PATH] = _T("");//저장 위치
-		TCHAR* pRootPath = const_cast<TCHAR*>(_T("D:\\"));//시작 위치
+		TCHAR* pRootPath = const_cast<TCHAR*>(_path.c_str());//시작 위치
+		//const_cast<TCHAR*>(_T("D:\\"));//시작 위치
 		HWND hWnd = NULL;
 		ZeroMemory(&browse_info, sizeof(BROWSEINFO));
 

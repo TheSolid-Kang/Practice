@@ -1,5 +1,6 @@
 #include "Headers.h"
 #include "CPracticeMgr.h"
+#include "CTempFunctionMgr.h"
 #include "Headers.h"
 #include "Enum.h"
 
@@ -10,7 +11,6 @@ int main() {
 	std::locale::global(std::locale(".UTF-8"));
 #endif
 	auto& instance = (*CPracticeMgr::GetInstance());
-	
 	do {
 		Afx_PrintTitle();
 		int num = CIO::ask_and_return_integer();
@@ -18,8 +18,9 @@ int main() {
 			break;
 		instance.SetPractice(num);
 	} while (instance.Execute() != -1); 
-	instance.DestroyInstance();
 
+	instance.DestroyInstance();
+	(*CTempFunctionMgr::GetInstance()).DestroyInstance();
 	return EXIT_SUCCESS;
 }
 

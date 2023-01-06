@@ -9,3 +9,9 @@ enum class PRACTICE_NUM : int {
 
 	, PNEND = 99
 };
+
+enum class TEMP_FUNC_NUM : int {
+	TFN_1 = 1
+
+	, END
+};
