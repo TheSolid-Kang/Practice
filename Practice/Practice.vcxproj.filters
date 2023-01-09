@@ -40,6 +40,9 @@
     <Filter Include="02.CTempFunction\00.CTempFunction_File">
       <UniqueIdentifier>{d9c477d4-5f49-4263-8a76-c01bc56f3f94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.CTempFunction\01.CTempFunction_CodingTest">
+      <UniqueIdentifier>{235ef9ff-58b3-40c5-8950-27c54d78d7f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="CTempFunction_File.cpp">
       <Filter>02.CTempFunction\00.CTempFunction_File</Filter>
+    </ClCompile>
+    <ClCompile Include="CTempFunction_CodingTest.cpp">
+      <Filter>02.CTempFunction\01.CTempFunction_CodingTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="CTempFunction_File.h">
       <Filter>02.CTempFunction\00.CTempFunction_File</Filter>
+    </ClInclude>
+    <ClInclude Include="CTempFunction_CodingTest.h">
+      <Filter>02.CTempFunction\01.CTempFunction_CodingTest</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

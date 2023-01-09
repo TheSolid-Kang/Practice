@@ -11,7 +11,8 @@ enum class PRACTICE_NUM : int {
 };
 
 enum class TEMP_FUNC_NUM : int {
-	TFN_1 = 1
+	FILE = 1
+	, CODING_TEST
 
 	, END
 };

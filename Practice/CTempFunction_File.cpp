@@ -34,10 +34,8 @@ void CTempFunction_File::init_func(void)
 
 void CTempFunction_File::init_selected_func(void)
 {
-	//COMMON 사용하는 예시임. 
-	//사용 할 생각은 없음
 	m_map_selected_func.emplace(std::make_pair(static_cast<size_t>(SELECTED_FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
-		return m_map_func[static_cast<size_t>(COMMON_FUNC::PRINT_TITLE)](nullptr);
+		return m_map_func[static_cast<size_t>(FUNC::ROOT)](nullptr);
 		}));
 }
 

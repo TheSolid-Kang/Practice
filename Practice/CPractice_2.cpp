@@ -101,8 +101,10 @@ void CPractice_2::init_func(void)
 			//1. 검색어 설정
 			//auto search_key = CIO::ask_and_return_string(); //잘 안 됨.
 			std::list<TString> list_search_key;
-			list_search_key.emplace_back(_T("은아"));
-			list_search_key.emplace_back(_T("결혼"));
+			list_search_key.emplace_back(_T("하나님"));
+			list_search_key.emplace_back(_T("아버지"));
+			list_search_key.emplace_back(_T("주님"));
+			list_search_key.emplace_back(_T("태경"));
 			list_search_key.emplace_back(_T("사랑"));
 
 			//2. Caleb 내에서 검색 횟수 확인
