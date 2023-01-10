@@ -4,7 +4,7 @@
 #include "Headers.h"
 #include "Enum.h"
 
-void Afx_PrintTitle();
+void PrintTitle();
 
 int main() {
 #if UNICODE
@@ -12,7 +12,7 @@ int main() {
 #endif
 	auto& instance = (*CPracticeMgr::GetInstance());
 	do {
-		Afx_PrintTitle();
+		PrintTitle();
 		int num = CIO::ask_and_return_integer();
 		if (num == EXIT)
 			break;
@@ -24,7 +24,7 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
-void Afx_PrintTitle()
+void PrintTitle()
 {
 	std::list<TString> list_title;
 

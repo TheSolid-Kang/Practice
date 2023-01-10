@@ -1,5 +1,5 @@
 #include "CPractice_2.h"
-//#include "../MySQL_DAO_v2/MySQL_DAO_v2.hpp"
+#include "../MySQL_DAO_v2/MySQL_DAO_v2.hpp"
 #include <numeric> //accumulate 사용
 
 #include "KMP.h"
@@ -9,7 +9,16 @@ CPractice_2::CPractice_2()
 	: m_uniq_map_func(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 	, m_uniq_map_testfunc(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 {
-
+	auto uniq_res = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM TEST;"));
+	try {
+		while ((*uniq_res).next()) {
+			std::cout << ", str_id = " << (*uniq_res).getString(1);
+			std::cout << ", label = '" << (*uniq_res).getString("label") << "'" << std::endl;
+		}
+	}
+	catch (std::exception& _e) {
+		std::cout << _e.what() << std::endl;
+	}
 }
 
 CPractice_2::~CPractice_2()
@@ -23,6 +32,8 @@ void CPractice_2::initialize()
 		, _T("2. 전체 Caleb 읽기, accumulate 사용 실해")
 		, _T("3. 전체 Caleb 읽기")
 		, _T("4. 파일 확인")
+		, _T("5. ")
+		, _T("6. DAO 테스트")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT") );
@@ -51,6 +62,12 @@ int CPractice_2::update()
 		break;
 	case static_cast<size_t>(TEST_FUNC::FOUR):
 		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::FOUR)](nullptr);
+		break;
+	case static_cast<size_t>(TEST_FUNC::FIVE):
+		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::FIVE)](nullptr);
+		break;
+	case static_cast<size_t>(TEST_FUNC::DAO_TEST):
+		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::DAO_TEST)](nullptr);
 		break;
 
 	default:
@@ -156,6 +173,10 @@ void CPractice_2::init_func(void)
 		, [&](const void* _p_void) {
 			
 			return nullptr; }));
+	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TEST_DAO_CONNECT)
+		, [&](const void* _p_void) {
+			auto uniq_result = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM TEST;"));
+			return nullptr; }));
 }
 
 void CPractice_2::init_testfunc(void)
@@ -175,6 +196,13 @@ void CPractice_2::init_testfunc(void)
 			(*m_uniq_map_func)[static_cast<size_t>(FUNC::FOUR)](nullptr);
 			return nullptr; }));
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::FIVE)
-		, [&](const void* _p_void) {return nullptr; }));
+		, [&](const void* _p_void) {
+			(*m_uniq_map_func)[static_cast<size_t>(FUNC::FIVE)](nullptr);
+			return nullptr; }));
+
+	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::DAO_TEST)
+		, [&](const void* _p_void) {
+			(*m_uniq_map_func)[static_cast<size_t>(FUNC::TEST_DAO_CONNECT)](nullptr);
+			return nullptr; }));
 
 }
