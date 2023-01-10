@@ -4,7 +4,7 @@
 #include <numeric> //accumulate 사용
 
 #include "KMP.h"
-
+#include <tuple>
 
 CPractice_2::CPractice_2()
 	: m_uniq_map_func(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
@@ -26,7 +26,7 @@ void CPractice_2::initialize()
 		, _T("4. 파일 확인")
 		, _T("5. ")
 		, _T("6. DAO 테스트")
-		, _T("")
+		, _T("7. 파라미터 참조 경로 검사")
 		, _T("")
 		, _T("99. EXIT") );
 	m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
@@ -60,6 +60,9 @@ int CPractice_2::update()
 		break;
 	case static_cast<size_t>(TEST_FUNC::DAO_TEST):
 		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::DAO_TEST)](nullptr);
+		break;
+	case static_cast<size_t>(TEST_FUNC::INSPECT_DATA):
+		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::INSPECT_DATA)](nullptr);
 		break;
 
 	default:
@@ -195,6 +198,51 @@ void CPractice_2::init_func(void)
 			}
 
 			return nullptr; }));
+
+	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::INSPECT_DATA)
+		, [&](const void* _p_void) {
+			MySQL_DAO_v3 dao;
+			//list: G_Code 초기화
+			std::vector<std::tuple<std::string, std::string, std::string, std::string>> vec_tup_str(1180);
+			std::set<std::string> set_overlap;
+			auto arr_gCode = build_array(_T("GT_Code0"), _T("GT_Code1"), _T("GT_Code2"), _T("GT_Code3"));
+			for (TString _gCode : arr_gCode)
+			{
+				//쿼리 작성
+				StringBuilder str_buil;
+				str_buil.append_endl(_T("SELECT ") + _gCode + _T(", G_IPP_Path, G_IPP_Path_Soft, G_IPP_Path_Hard"));
+				str_buil.append_endl(_T("FROM																																						"));
+				str_buil.append_endl(_T("(SELECT ") + _gCode + _T(""));
+				str_buil.append_endl(_T("	FROM pxxn.sp_studylist																												"));
+				str_buil.append_endl(_T("	WHERE WL_Code >= 'IDW0000000072' && WL_Code <= 'IDW0000000078') AS StudyList	"));
+				str_buil.append_endl(_T("	INNER JOIN sp_Generator AS Generator on StudyList.") + _gCode + _T(" = Generator.G_Code;"));
+				TString query = str_buil.str();
+				auto uniq_res = dao.GetResultSet(query);
+				try {
+					while ((*uniq_res).next()) {
+						//std::cout << ", gCode = " << (*uniq_res).getString(1);
+						//std::cout << ", G_IPP_Path = '" << (*uniq_res).getString("G_IPP_Path") << "'";
+						//std::cout << ", G_IPP_Path_Soft = '" << (*uniq_res).getString("G_IPP_Path_Soft");
+						//std::cout << ", G_IPP_Path_Hard = '" << (*uniq_res).getString("G_IPP_Path_Hard") << std::endl;
+						vec_tup_str.emplace_back(std::make_tuple((*uniq_res).getString(1), (*uniq_res).getString(2), (*uniq_res).getString(3), (*uniq_res).getString(4)));
+					}
+				}
+				catch (std::exception& _e) {
+					std::cout << _e.what() << std::endl;
+				}
+
+			}
+			std::cout << vec_tup_str.size() << std::endl;
+
+			for (auto& tup_str : vec_tup_str)
+				set_overlap.emplace(std::get<1>(tup_str));
+
+			
+			std::cout << "path 개수: " << set_overlap.size() << std::endl;
+			for (auto _str : set_overlap)
+				std::cout << _str << std::endl;
+
+			return nullptr; }));
 }
 
 void CPractice_2::init_testfunc(void)
@@ -223,5 +271,11 @@ void CPractice_2::init_testfunc(void)
 			(*m_uniq_map_func)[static_cast<size_t>(FUNC::TEST_DAO2_CONNECT)](nullptr);
 			(*m_uniq_map_func)[static_cast<size_t>(FUNC::TEST_DAO3_CONNECT)](nullptr);
 			return nullptr; }));
+	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::INSPECT_DATA)
+		, [&](const void* _p_void) {
+			(*m_uniq_map_func)[static_cast<size_t>(FUNC::INSPECT_DATA)](nullptr);
+			return nullptr; }));
 
 }
+
+

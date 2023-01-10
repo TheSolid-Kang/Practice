@@ -11,7 +11,8 @@ std::unique_ptr<sql::ResultSet> MySQL_DAO_v3::GetResultSet(const TString& _query
 
 		con = (*driver).connect("tcp://127.0.0.1:3306", "root", "root");
 		stmt = (*con).createStatement();
-		(*con).setSchema("test");
+		//(*con).setSchema(sql::SQLString(name.begin(), name.end()));
+		(*con).setSchema("pxxn");
 		std::unique_ptr<sql::ResultSet> uniq_res((*stmt).executeQuery(std::string(_query.begin(), _query.end())));
 		_uniq_res = std::move(uniq_res);
 	}
@@ -52,7 +53,11 @@ std::vector<std::vector<TString>> MySQL_DAO_v3::GetDataContainer(const TString& 
 		for (int column_cnt = 1; column_cnt <= _column_cnt; ++column_cnt)
 		{
 			auto sql_str = (*uniq_res).getString(column_cnt);
+#if UNICODE
 			vec_result[i].push_back(std::wstring(sql_str.asStdString().begin(), sql_str.asStdString().end()));
+#else
+			vec_result[i].push_back(sql_str);
+#endif
 		}
 		i++;
 	}

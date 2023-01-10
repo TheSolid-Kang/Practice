@@ -52,7 +52,11 @@ std::vector<std::vector<TString>> MySQL_DAO_v2::GetDataContainer(const TString& 
 		for (int column_cnt = 1; column_cnt <= _column_cnt; ++column_cnt)
 		{
 			auto sql_str = (*uniq_res).getString(column_cnt);
+#if UNICODE
 			vec_result[i].push_back(std::wstring(sql_str.asStdString().begin(), sql_str.asStdString().end()));
+#else
+			vec_result[i].push_back(sql_str); 
+#endif
 		}
 		i++;
 	}

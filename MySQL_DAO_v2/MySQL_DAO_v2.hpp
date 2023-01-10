@@ -29,7 +29,7 @@ using tofstream = std::wofstream;
 #define tcout  wcout
 #define tcin  wcin
 #else
-using TString = TString;
+using TString = std::string;
 using tifstream = std::ifstream;
 using tofstream = std::ofstream;
 #define tcout  cout
