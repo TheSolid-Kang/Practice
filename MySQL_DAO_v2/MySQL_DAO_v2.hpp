@@ -12,8 +12,7 @@
 #include <C:\Program Files\MySQL\Connector C++ 8.0\include\jdbc\cppconn/resultset.h>
 #include <C:\Program Files\MySQL\Connector C++ 8.0\include\jdbc\cppconn/statement.h>
 //#include <../include/jdbc/cppconn/connection.h>
-//#include "jdbc/cppconn/connection.h"
-//
+
 //#include <jdbc/cppconn/connection.h>
 //#include <jdbc/cppconn/driver.h>
 //#include <jdbc/cppconn/exception.h>

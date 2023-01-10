@@ -1,5 +1,6 @@
 #include "CPractice_2.h"
 #include "../MySQL_DAO_v2/MySQL_DAO_v2.hpp"
+#include "../MySQL_DAO_v2/MySQL_DAO_v3.h"
 #include <numeric> //accumulate 사용
 
 #include "KMP.h"
@@ -9,16 +10,7 @@ CPractice_2::CPractice_2()
 	: m_uniq_map_func(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 	, m_uniq_map_testfunc(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 {
-	auto uniq_res = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM TEST;"));
-	try {
-		while ((*uniq_res).next()) {
-			std::cout << ", str_id = " << (*uniq_res).getString(1);
-			std::cout << ", label = '" << (*uniq_res).getString("label") << "'" << std::endl;
-		}
-	}
-	catch (std::exception& _e) {
-		std::cout << _e.what() << std::endl;
-	}
+
 }
 
 CPractice_2::~CPractice_2()
@@ -173,9 +165,35 @@ void CPractice_2::init_func(void)
 		, [&](const void* _p_void) {
 			
 			return nullptr; }));
-	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TEST_DAO_CONNECT)
+	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TEST_DAO2_CONNECT)
 		, [&](const void* _p_void) {
-			auto uniq_result = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM TEST;"));
+			std::cout << "dao2" << std::endl;
+			auto uniq_res = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM TEST;"));
+			try {
+				while ((*uniq_res).next()) {
+					std::cout << ", str_id = " << (*uniq_res).getString(1);
+					std::cout << ", label = '" << (*uniq_res).getString("label") << "'" << std::endl;
+				}
+			}
+			catch (std::exception& _e) {
+				std::cout << _e.what() << std::endl;
+			}
+			return nullptr; }));	
+	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TEST_DAO3_CONNECT)
+		, [&](const void* _p_void) {
+			std::cout << "dao3" << std::endl;
+			MySQL_DAO_v3 dao;
+			auto uniq_res = dao.GetResultSet(_T("SELECT * FROM TEST;"));
+			try {
+				while ((*uniq_res).next()) {
+					std::cout << ", str_id = " << (*uniq_res).getString(1);
+					std::cout << ", label = '" << (*uniq_res).getString("label") << "'" << std::endl;
+				}
+			}
+			catch (std::exception& _e) {
+				std::cout << _e.what() << std::endl;
+			}
+
 			return nullptr; }));
 }
 
@@ -202,7 +220,8 @@ void CPractice_2::init_testfunc(void)
 
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::DAO_TEST)
 		, [&](const void* _p_void) {
-			(*m_uniq_map_func)[static_cast<size_t>(FUNC::TEST_DAO_CONNECT)](nullptr);
+			(*m_uniq_map_func)[static_cast<size_t>(FUNC::TEST_DAO2_CONNECT)](nullptr);
+			(*m_uniq_map_func)[static_cast<size_t>(FUNC::TEST_DAO3_CONNECT)](nullptr);
 			return nullptr; }));
 
 }
