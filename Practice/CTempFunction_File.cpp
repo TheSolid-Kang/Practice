@@ -40,14 +40,17 @@ void CTempFunction_File::init_selected_func(void)
 }
 
 
-int CTempFunction_File::render()
+void CTempFunction_File::render()
 {
 	auto shar_title = m_map_selected_func[static_cast<size_t>(COMMON_FUNC::PRINT_TITLE)](nullptr);
 	CTempFunction::render(*(TString*)shar_title.get());
-  return 0;
 }
 
-int CTempFunction_File::update()
+void CTempFunction_File::render(const void* _p_void)
+{
+}
+
+int CTempFunction_File::update(int _event)
 {
     return 0;
 }

@@ -46,12 +46,16 @@ void CTempFunction_CodingTest::init_selected_func(void)
 		}));
 }
 
-int CTempFunction_CodingTest::render()
+void CTempFunction_CodingTest::render()
 {
-    return 0;
+
 }
 
-int CTempFunction_CodingTest::update()
+void CTempFunction_CodingTest::render(const void* _p_void)
+{
+}
+
+int CTempFunction_CodingTest::update(int _event)
 {
     return 0;
 }

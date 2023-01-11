@@ -3,13 +3,14 @@
 
 class ITempFunction {
 protected:
-	virtual void initialize() = 0;
-	virtual void init_func() = 0;
-	virtual void init_selected_func() = 0;
-	virtual void render(const TString& _str) = 0;
-	virtual int render() = 0;
-	virtual int update() = 0;
-	virtual void release() = 0;
+	virtual void initialize(void) = 0;
+	virtual void init_func(void) = 0;
+	virtual void init_selected_func(void) = 0;
+	virtual void render(void) = 0;
+	virtual void render(const void* _p_void) = 0;
+	virtual void render(TString& _str) = 0;
+	virtual int update(int _event = 0) = 0;
+	virtual void release(void) = 0;
 };
 
 class CTempFunction : public ITempFunction
@@ -28,13 +29,14 @@ protected:
 
 protected:
 	// ITempFunction을(를) 통해 상속됨
-	virtual void initialize() override;
-	virtual void init_func() override;
-	virtual void init_selected_func() override;
-	void render(const TString& _str) override;
-	virtual int render() override;
-	virtual int update() override;
-	virtual void release() override;
+	virtual void initialize(void) override;
+	virtual void init_func(void) override;
+	virtual void init_selected_func(void) override;
+	virtual void render(void) override;
+	virtual void render(const void* _p_void) override;
+	virtual void render(TString& _str) override;
+	virtual int update(int _event = 0) override;
+	virtual void release(void) override;
 
 public:
 	virtual int Execute() final;
@@ -44,4 +46,6 @@ protected:
 	auto build_array(Args&&... _args)
 		->std::array<std::common_type_t<Args...>, sizeof ...(_args)>
 	{ return { std::forward < std::common_type_t<Args...>>((Args&&)_args)... }; }
+
+
 };
