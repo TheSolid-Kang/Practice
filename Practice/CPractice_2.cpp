@@ -31,15 +31,19 @@ void CPractice_2::initialize()
 		, _T("99. EXIT") );
 	m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
 	init_func();
-	init_testfunc();
+	init_selected_func();
 }
 
-void CPractice_2::render() noexcept
+void CPractice_2::render() 
 {
 	std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&](const TString& _title) {std::tcout << _title << std::endl; });
 }
 
-int CPractice_2::update()
+void CPractice_2::render(const void* _p_void)
+{
+}
+
+int CPractice_2::update(int _event)
 {
 	switch (CIO::ask_and_return_integer())
 	{
@@ -245,7 +249,7 @@ void CPractice_2::init_func(void)
 			return nullptr; }));
 }
 
-void CPractice_2::init_testfunc(void)
+void CPractice_2::init_selected_func(void)
 {
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::ONE)
 		, [&](const void* _p_void) {return nullptr; }));

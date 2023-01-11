@@ -14,7 +14,7 @@ CPractice::~CPractice()
 {
 }
 
-int CPractice::execute()
+int CPractice::Execute()
 {
 	system("pause");
 	system("cls");
@@ -26,4 +26,37 @@ int CPractice::execute()
 	auto memory_info = _CrtDumpMemoryLeaks();
 	std::tcout << _T("Memory: ") << memory_info << std::endl;
 	return result;
+}
+
+void CPractice::initialize(void)
+{
+}
+
+void CPractice::init_func(void)
+{
+}
+
+void CPractice::init_selected_func(void)
+{
+}
+
+void CPractice::render(void)
+{
+}
+
+void CPractice::render(const void* _p_void)
+{
+}
+
+void CPractice::render(TString& _str)
+{
+}
+
+int CPractice::update(int _event)
+{
+	return 0;
+}
+
+void CPractice::release(void)
+{
 }

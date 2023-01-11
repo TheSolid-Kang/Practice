@@ -28,6 +28,6 @@ void CPracticeMgr::SetPractice(const int& _practice_num) noexcept
 
 int CPracticeMgr::Execute()
 {
-	return (*m_uniq_practice).execute();
+	return (*m_uniq_practice).Execute();
 }
 

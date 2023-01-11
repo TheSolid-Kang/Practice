@@ -16,14 +16,13 @@ private:
 
 private:
 	// CPractice을(를) 통해 상속됨
-	virtual void initialize() override;
-	virtual void render() noexcept override;
-	virtual int update() override;
-	virtual void release() override;
-
-private:
-	void init_func(void);
-	void init_testfunc(void);
+	virtual void initialize(void) override;
+	virtual void init_func(void) override;
+	virtual void init_selected_func(void) override;
+	virtual void render(void) override;
+	virtual void render(const void* _p_void) override;
+	virtual int update(int _event = 0) override;
+	virtual void release(void) override;
 
 private:
 	template<typename... Args>//분석 필요: 이해 없이 컴파일되기에 사용하는 코드.
