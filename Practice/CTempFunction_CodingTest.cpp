@@ -22,33 +22,18 @@ void CTempFunction_CodingTest::initialize()
 
 void CTempFunction_CodingTest::init_func(void)
 {
-	m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
-		StringBuilder str_buil;
-		std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&str_buil](const TString& _ch_page) { str_buil.append_endl(_ch_page); });
-		TString title = str_buil.str();
-		auto shar_title = std::make_shared<TString>(title);
 
-		//auto item = std::accumulate(m_list_title.begin(), m_list_title.end(), std::unique_ptr<TCHAR>(std::make_unique<TCHAR>(_T("")))
-		//	, [](std::unique_ptr<TCHAR> _p_ch, TString& _p) {
-		//		auto str_title = (*_p_ch) + _p;
-		//		auto uniq_titles = std::unique_ptr<TCHAR>(const_cast<TCHAR*>(str_title.c_str()));
-		//		return _p_ch;
-		//	});
-
-		return shar_title;
-		}));
 }
 
 void CTempFunction_CodingTest::init_selected_func(void)
 {
-	m_map_selected_func.emplace(std::make_pair(static_cast<size_t>(SELECTED_FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
-		return m_map_func[static_cast<size_t>(FUNC::ROOT)](nullptr);
-		}));
+
 }
 
 void CTempFunction_CodingTest::render()
 {
-
+  auto shar_title = m_map_selected_func[static_cast<size_t>(COMMON_SELECTED_FUNC::PRINT_TITLE)](nullptr);
+  CTempFunction::render(*(TString*)shar_title.get());
 }
 
 void CTempFunction_CodingTest::render(const void* _p_void)
