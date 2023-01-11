@@ -21,32 +21,34 @@ void CTempFunction::initialize()
 
 void CTempFunction::init_func(void)
 {
-
 }
 
 void CTempFunction::init_selected_func(void)
 {
-
 }
 
-void CTempFunction::render(const TString& _str)
+void CTempFunction::render(void)
+{
+}
+
+void CTempFunction::render(const void* _p_void)
+{
+}
+
+void CTempFunction::render(TString& _str)
 {
 	std::tcout << _str << std::endl;
 }
 
-int CTempFunction::render()
+int CTempFunction::update(int _event )
 {
 	return 0;
 }
 
-int CTempFunction::update()
+void CTempFunction::release(void)
 {
-	return 0;
 }
 
-void CTempFunction::release()
-{
-}
 
 int CTempFunction::Execute()
 {
@@ -61,3 +63,4 @@ int CTempFunction::Execute()
 	std::tcout << _T("Memory: ") << memory_info << std::endl;
 	return result;
 }
+
