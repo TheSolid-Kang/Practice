@@ -66,7 +66,10 @@ int CTempFunction::Execute()
 	system("cls");
 	initialize();
 	render();
-	int result = update();
+	int result = 0;
+	int selected_func = CIO::ask_and_return_integer();
+	if (selected_func > static_cast<int>(COMMON_SELECTED_FUNC::PRINT_TITLE) && selected_func < m_map_selected_func.size())
+		result = update(selected_func);
 
 	release();
 	auto memory_info = _CrtDumpMemoryLeaks();
