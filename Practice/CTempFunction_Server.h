@@ -6,6 +6,17 @@ class CTempFunction_Server :
 public:
 	CTempFunction_Server();
 	~CTempFunction_Server();
+private:
+	enum class FUNC : size_t {
+		ROOT = static_cast<size_t>(COMMON_FUNC::END)
+		, CREATE_PIPE_HANDLE
+		, CONNECT_PIPE
+		, END
+	};
+	enum class SELECTED_FUNC : size_t {
+		PIPE_SERVER = static_cast<size_t>(COMMON_SELECTED_FUNC::END)
+		, END
+	};
 
 private:
 	// ITempFunction을(를) 통해 상속됨
