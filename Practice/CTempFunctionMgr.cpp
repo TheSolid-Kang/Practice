@@ -2,6 +2,8 @@
 #include "Enum.h"
 #include "CTempFunction_File.h"
 #include "CTempFunction_CodingTest.h"
+#include "CTempFunction_Server.h"
+
 IMPLEMENT_SINGLETON(CTempFunctionMgr);
 
 void CTempFunctionMgr::SetTempFunction(const int& _practice_num) noexcept
@@ -16,6 +18,9 @@ void CTempFunctionMgr::SetTempFunction(const int& _practice_num) noexcept
 		break;
 	case static_cast<int>(TEMP_FUNC_NUM::CODING_TEST):
 		m_uniq_tempfunction = std::make_unique<CTempFunction_CodingTest>();
+		break;
+	case static_cast<int>(TEMP_FUNC_NUM::SERVER):
+		m_uniq_tempfunction = std::make_unique<CTempFunction_Server>();
 		break;
 
 	case static_cast<int>(TEMP_FUNC_NUM::END):
