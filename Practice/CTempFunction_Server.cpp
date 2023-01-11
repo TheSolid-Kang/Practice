@@ -25,6 +25,13 @@ void CTempFunction_Server::init_func(void)
 {
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
     return nullptr; }));
+  m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::RESPOND_TEMP), [&](const void* _p_void) -> std::shared_ptr<void> {
+    auto arr_response = build_array("BENDINGCOUNT", "CUTTINGCOUNT", "STATUS", "WIRESTATE", "WIRELEN");
+    auto shar_map_response = std::make_shared<std::map<std::string, int>>();
+    for (auto _response : arr_response)
+      (*shar_map_response)[_response];
+    return shar_map_response; }));
+
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::CREATE_PIPE_HANDLE), [&](const void* _p_void) -> std::shared_ptr<void> {
     std::cout << "확인" << std::endl;
     //0. 초기화
@@ -57,11 +64,22 @@ void CTempFunction_Server::init_func(void)
     DWORD dword_nwrite = 0;
     BOOL brtv = FALSE;
     char buf[BUF_SIZE] = { 0, };
+
+    //// 이전에 연결된 파이프가 있는지 초기화한다.
+    //::DisconnectNamedPipe(pipe_handle);
+    //
+    ////클라이언트가 연결되기를 기다린다.
+    ////클라이언트가 연결되기 전에는 리턴되지 않는다.
+    BOOL is_connected = ConnectNamedPipe(pipe_handle, NULL); //0 == FALSE, 1 == TRUE
+
+    auto shar_map_response = m_map_func[static_cast<size_t>(FUNC::RESPOND_TEMP)](nullptr);
+    auto& r_map_response = *(std::map<std::string, int>*)shar_map_response.get();
+
     while (true)
     {
       // 이전에 연결된 파이프가 있는지 초기화한다.
       ::DisconnectNamedPipe(pipe_handle);
-
+      
       //클라이언트가 연결되기를 기다린다.
       //클라이언트가 연결되기 전에는 리턴되지 않는다.
       BOOL is_connected = ConnectNamedPipe(pipe_handle, NULL); //0 == FALSE, 1 == TRUE
@@ -69,23 +87,31 @@ void CTempFunction_Server::init_func(void)
       // is_connected이 FALSE이고 GetLastError가 ERROR_PIPE_CONNECTED이면 정상 연결된 경우이므로 is_connected을 TRUE로 해준다.
       if (is_connected == FALSE && last_error == ERROR_PIPE_CONNECTED)
         is_connected = TRUE;
-
+      int i = 0;
       //3. 정상 연결인 경우 서버 실행
+      while(++i <= 5)
       if (TRUE == is_connected) //파이프에 성공적으로 연결 되었다면 아래의 코드 실행
       {
         std::cout << "연결 성공 \n";
         brtv = ::ReadFile(pipe_handle, buf, BUF_SIZE, &dword_nread, NULL);
         std::cout << "읽기 == " << buf << std::endl;
-        //::Sleep(100);
         // 버퍼에 있는것을 비운다.
-        //::FlushFileBuffers(pipe_handle);
+        ::FlushFileBuffers(pipe_handle);
 
+        std::string temp = std::to_string(r_map_response[buf]);
 
-        brtv = ::WriteFile(pipe_handle, buf, BUF_SIZE, &dword_nwrite, NULL);
+        char temp_buf[BUF_SIZE] = { 0, };
+        strcpy_s(buf, temp_buf);
+        strcpy_s(buf, const_cast<char*>(temp.c_str()));
+        //buf = std::to_string(r_map_response[buf]);
+
+        //brtv = ::WriteFile(pipe_handle, buf, BUF_SIZE, &dword_nwrite, NULL); 
+        //클라이언트가 받는 문자열의 최대치는 255였음, 
+        //255를 넘어가는 값을 write해서 계속 멈춘 거임.
+        brtv = ::WriteFile(pipe_handle, buf, strlen(buf) + 1, &dword_nwrite, NULL);
         std::cout << "작성 == " << buf << std::endl;
-        //::Sleep(100);
         // 버퍼에 있는것을 비운다.
-        //::FlushFileBuffers(pipe_handle);
+        ::FlushFileBuffers(pipe_handle);
       }
     }
 

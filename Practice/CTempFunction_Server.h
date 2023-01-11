@@ -9,8 +9,13 @@ public:
 private:
 	enum class FUNC : size_t {
 		ROOT = static_cast<size_t>(COMMON_FUNC::END)
+		//1. 파이프 서버
+		, RESPOND_TEMP
 		, CREATE_PIPE_HANDLE
 		, CONNECT_PIPE
+
+
+		//2. 
 		, END
 	};
 	enum class SELECTED_FUNC : size_t {
