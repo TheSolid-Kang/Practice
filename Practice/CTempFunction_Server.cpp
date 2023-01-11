@@ -76,16 +76,16 @@ void CTempFunction_Server::init_func(void)
         std::cout << "연결 성공 \n";
         brtv = ::ReadFile(pipe_handle, buf, BUF_SIZE, &dword_nread, NULL);
         std::cout << "읽기 == " << buf << std::endl;
-        ::Sleep(100);
+        //::Sleep(100);
         // 버퍼에 있는것을 비운다.
-        ::FlushFileBuffers(pipe_handle);
+        //::FlushFileBuffers(pipe_handle);
 
 
         brtv = ::WriteFile(pipe_handle, buf, BUF_SIZE, &dword_nwrite, NULL);
         std::cout << "작성 == " << buf << std::endl;
-        ::Sleep(100);
+        //::Sleep(100);
         // 버퍼에 있는것을 비운다.
-        ::FlushFileBuffers(pipe_handle);
+        //::FlushFileBuffers(pipe_handle);
       }
     }
 
