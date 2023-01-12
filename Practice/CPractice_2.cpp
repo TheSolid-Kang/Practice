@@ -19,8 +19,9 @@ CPractice_2::~CPractice_2()
 
 void CPractice_2::initialize()
 {
-	auto arr_title = build_array(
-		_T(" ")
+	auto arr_title = build_array(_T(" ")
+		, _T("1. ")
+		, _T("")
 		, _T("")
 		, _T("99. EXIT") );
 	m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
@@ -72,24 +73,10 @@ void CPractice_2::init_func(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE)
 		, [&](const void* _p_void) {
-			//auto uniq_ResultSet = MySQL_DAO_v2::GetInstance().GetResultSet(_T("SELECT * FROM test"));
+
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO)
 		, [&](const void* _p_void) {
-			TString caleb_root_path = _T("C:\\Caleb\\CalebRecord");
-			auto vec_caleb_path = CFIOMgr::GetFilesInDirectory(caleb_root_path);
-			for (const TString& _caleb_path : vec_caleb_path)
-			{
-				auto vec_line = CFIOMgr::GetVecFileLines(_caleb_path);
-
-				auto item = std::accumulate(vec_line.begin(), vec_line.end(), const_cast<TCHAR*>(_T(""))
-					, [](TCHAR* _p_ch, TString& _p) {
-						TString str(_p_ch);
-						str += _p;
-						_p_ch = &(*const_cast<TCHAR*>(str.c_str()));
-						return _p_ch;
-					});
-			}
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::THREE)
@@ -98,7 +85,6 @@ void CPractice_2::init_func(void)
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR)
 		, [&](const void* _p_void) {
-
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FIVE)

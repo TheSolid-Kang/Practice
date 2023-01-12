@@ -15,6 +15,7 @@ CPractice_1::~CPractice_1()
 void CPractice_1::initialize()
 {
 	auto arr_title = build_array(_T(" ")
+		, _T("1. ")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT")
@@ -49,6 +50,9 @@ int CPractice_1::update(int _event)
 	case static_cast<size_t>(TEST_FUNC::FOUR):
 		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::FOUR)](nullptr);
 		break;
+	case static_cast<size_t>(TEST_FUNC::FIVE):
+		(*m_uniq_map_testfunc)[static_cast<size_t>(TEST_FUNC::FIVE)](nullptr);
+		break;
 
 	default:
 		break;
@@ -66,20 +70,23 @@ void CPractice_1::init_func(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			return nullptr; 
-		}));
+
+			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			return nullptr; 
-		}));
+
+			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::THREE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
+
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
+
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FIVE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
+
 			return nullptr; }));
 }
 
