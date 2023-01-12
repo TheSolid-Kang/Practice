@@ -70,7 +70,16 @@ void CPractice_1::init_func(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
+			//방법 1. = { 0 }
+			std::list<TString> map_str1 = { 0 };
 
+			//방법 2. = ZeroMemory(변수의 참조, 자료형의 크기)
+			std::list<TString> map_str2;
+			ZeroMemory(&map_str2, sizeof(map_str2));
+
+			//방법 2. = ZeroMemory(변수의 참조, 0, 자료형의 크기)
+			std::list<TString> map_str3;
+			std::memset(&map_str3, 0, sizeof(map_str3));
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
