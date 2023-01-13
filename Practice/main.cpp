@@ -65,6 +65,8 @@ void PrintTitle(int _selected_mgr)
 		list_title.emplace_back(_T("1. 파일 관련 함수 모음"));
 		list_title.emplace_back(_T("2. 코테 관련 함수 모음"));
 		list_title.emplace_back(_T("3. 서버 관련 함수 모음: 파이프 서버"));
+		list_title.emplace_back(_T("4. 클라이언트 관련 함수 모음: 파이프 클라이언트"));
+		list_title.emplace_back(_T(""));
 		list_title.emplace_back(_T(""));
 		list_title.emplace_back(_T("99.EXIT"));
 	}

@@ -14,6 +14,7 @@ enum class TEMP_FUNC_NUM : int {
 	FILE = 1
 	, CODING_TEST
 	, SERVER
+	, CLIENT
 
 	, END
 };

@@ -3,6 +3,7 @@
 #include "CTempFunction_File.h"
 #include "CTempFunction_CodingTest.h"
 #include "CTempFunction_Server.h"
+#include "CTempFunction_Client.h"
 
 IMPLEMENT_SINGLETON(CTempFunctionMgr);
 
@@ -21,6 +22,9 @@ void CTempFunctionMgr::SetTempFunction(const int& _practice_num) noexcept
 		break;
 	case static_cast<int>(TEMP_FUNC_NUM::SERVER):
 		m_uniq_tempfunction = std::make_unique<CTempFunction_Server>();
+		break;
+	case static_cast<int>(TEMP_FUNC_NUM::CLIENT):
+		m_uniq_tempfunction = std::make_unique<CTempFunction_Client>();
 		break;
 
 	case static_cast<int>(TEMP_FUNC_NUM::END):
