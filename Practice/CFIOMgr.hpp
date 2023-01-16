@@ -86,7 +86,7 @@ public:
 	//1-2. Directory 내 하위 폴더 차례대로 생성
 	static void CreateDirectorys(const TString& _path) {
 		TString path(_path.begin(), _path.end());
-		TCHAR arr_dir_name[256];
+		TCHAR arr_dir_name[256] = {0,};
 		TCHAR* ch_ptr_path = const_cast<TCHAR*>(path.c_str());
 		TCHAR* ch_ptr_dirname = arr_dir_name;
 

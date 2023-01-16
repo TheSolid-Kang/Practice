@@ -1,6 +1,6 @@
 #include "CTempFunction_Client.h"
 #define PIPE_NAME "\\\\.\\pipe\\echo"
-#define BUF_SIZE 32768
+#define BUF_SIZE 255
 
 CTempFunction_Client::CTempFunction_Client()
 {

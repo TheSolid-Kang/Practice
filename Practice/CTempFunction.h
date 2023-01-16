@@ -21,10 +21,12 @@ public:
 
 protected:
 	enum class COMMON_FUNC : size_t { PRINT_TITLE, END};
-	enum class COMMON_SELECTED_FUNC : size_t { PRINT_TITLE, END };
 	enum class TEST : size_t;
 	std::list<TString> m_list_title;
 	std::map<size_t, std::function<std::shared_ptr<void>(const void*)>> m_map_func;
+
+public:
+	enum class COMMON_SELECTED_FUNC : size_t { PRINT_TITLE, END };
 	std::map<size_t, std::function<std::shared_ptr<void>(const void*)>> m_map_selected_func;
 
 protected:

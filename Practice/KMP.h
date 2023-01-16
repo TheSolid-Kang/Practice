@@ -20,7 +20,7 @@ private:
 		for (int i = 1; i < iSearchKeySize; ++i)
 		{
 			while (j > 0 && _strSearchKey[i] != _strSearchKey[j])
-				j = (*uniq_vec_pi).at(j - 1);
+				j = (*uniq_vec_pi).at(--j);
 			if (_strSearchKey[i] == _strSearchKey[j])
 				(*uniq_vec_pi).at(i) = ++j;
 		}
@@ -39,7 +39,7 @@ public:
 		for (int i = 0; i < iTextSize; ++i)
 		{
 			while (j > 0 && _strText[i] != _strSearchKey[j])
-				j = (*uniq_vec_pi).at(j - 1);
+				j = (*uniq_vec_pi).at(--j);
 			if (_strText[i] == _strSearchKey[j])
 			{
 				if (j == iSearchKeySize - 1)
