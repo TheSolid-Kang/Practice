@@ -151,10 +151,8 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClCompile Include="CPractice_2.cpp" />
     <ClCompile Include="CTempFunction.cpp" />
     <ClCompile Include="CTempFunctionMgr.cpp" />
-    <ClCompile Include="CTempFunction_Client.cpp" />
     <ClCompile Include="CTempFunction_CodingTest.cpp" />
     <ClCompile Include="CTempFunction_File.cpp" />
-    <ClCompile Include="CTempFunction_Server.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,10 +167,8 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClInclude Include="CPractice_2.h" />
     <ClInclude Include="CTempFunction.h" />
     <ClInclude Include="CTempFunctionMgr.h" />
-    <ClInclude Include="CTempFunction_Client.h" />
     <ClInclude Include="CTempFunction_CodingTest.h" />
     <ClInclude Include="CTempFunction_File.h" />
-    <ClInclude Include="CTempFunction_Server.h" />
     <ClInclude Include="DEFINE_MGR.hpp" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Headers.h" />
@@ -183,6 +179,9 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ProjectReference Include="..\MySQL_DAO_v2\MySQL_DAO_v2.vcxproj">
       <Project>{c7ba1df4-1a3a-4bdf-a4f4-77e4f05a0450}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -43,12 +43,6 @@
     <Filter Include="02.CTempFunction\01.CTempFunction_CodingTest">
       <UniqueIdentifier>{235ef9ff-58b3-40c5-8950-27c54d78d7f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.CTempFunction\02.CTempFunction_Server">
-      <UniqueIdentifier>{189094b7-49fe-4468-912c-b1e02552198f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.CTempFunction\03.CTempFunction_Client">
-      <UniqueIdentifier>{8c4fee85-e40a-4efb-bc7a-15bc3f63d4aa}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,12 +71,6 @@
     </ClCompile>
     <ClCompile Include="CTempFunction_CodingTest.cpp">
       <Filter>02.CTempFunction\01.CTempFunction_CodingTest</Filter>
-    </ClCompile>
-    <ClCompile Include="CTempFunction_Server.cpp">
-      <Filter>02.CTempFunction\02.CTempFunction_Server</Filter>
-    </ClCompile>
-    <ClCompile Include="CTempFunction_Client.cpp">
-      <Filter>02.CTempFunction\03.CTempFunction_Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,11 +128,10 @@
     <ClInclude Include="CTempFunction_CodingTest.h">
       <Filter>02.CTempFunction\01.CTempFunction_CodingTest</Filter>
     </ClInclude>
-    <ClInclude Include="CTempFunction_Server.h">
-      <Filter>02.CTempFunction\02.CTempFunction_Server</Filter>
-    </ClInclude>
-    <ClInclude Include="CTempFunction_Client.h">
-      <Filter>02.CTempFunction\03.CTempFunction_Client</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd">
+      <Filter>00.main</Filter>
+    </None>
   </ItemGroup>
 </Project>

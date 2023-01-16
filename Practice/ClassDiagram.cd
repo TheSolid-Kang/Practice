@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CPractice" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAACAAAAAAAAAAEEAAAAAIAAAAAAAAAAAAQUAAA=</HashCode>
+      <FileName>CPractice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPractice_1" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="CPractice" ManuallyRouted="true">
+      <Path>
+        <Point X="2.5" Y="5.062" />
+        <Point X="2.5" Y="5.411" />
+        <Point X="1.387" Y="5.411" />
+        <Point X="1.387" Y="6.096" />
+        <Point X="2" Y="6.096" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>UIAAAAAAAAAAQAACAAEAAAAAAAAgABgAAAAAAAAUAAA=</HashCode>
+      <FileName>CPractice_1.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPractice_2" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="CPractice" ManuallyRouted="true">
+      <Path>
+        <Point X="2.5" Y="5.062" />
+        <Point X="2.5" Y="5.494" />
+        <Point X="3.5" Y="5.494" />
+        <Point X="3.5" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>UIAAAAAQAAAAQAACAAEAAAAAAAAAABgAAAAAAAAUAAA=</HashCode>
+      <FileName>CPractice_2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPracticeMgr" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAQAAAIAAAAAAAAAAAAAAAAAIAEAAAA=</HashCode>
+      <FileName>CPracticeMgr.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTempFunctionMgr" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAQAAAIAAAAAAAAAAAAAAAAgAAEAAAA=</HashCode>
+      <FileName>CTempFunctionMgr.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CFileMgr" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAACQAAAA=</HashCode>
+      <FileName>CFileMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CFIOMgr" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAAAACAAAAAAAkCAAAAAAAAAAAAAABgAAAAAAgA=</HashCode>
+      <FileName>CFIOMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CINIMgr" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAgA=</HashCode>
+      <FileName>CINIMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIO" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CIO.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMyEtc" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>CMyEtc.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMP" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAQA=</HashCode>
+      <FileName>KMP.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StringBuilder" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAACAAAAAAAAAAAAAAAAAACAAgAEAAAAAEAQ=</HashCode>
+      <FileName>StringBuilder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ITempFunction" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEUAAA=</HashCode>
+      <FileName>CTempFunction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTempFunction" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UIABAAAAAAAAAAQAAAEAAIAAAIAAAABBAAAAAAEUAAA=</HashCode>
+      <FileName>CTempFunction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTempFunction_File" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CTempFunction_File::FUNC" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CTempFunction_File.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="CTempFunction_File::SELECTED_FUNC" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CTempFunction_File.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EIAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQEUAAA=</HashCode>
+      <FileName>CTempFunction_File.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTempFunction_CodingTest" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAAAAAAE0AAA=</HashCode>
+      <FileName>CTempFunction_CodingTest.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="FILE_TYPE" Collapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAIAAAJAAAAAQAAAAAAAABAAQAA=</HashCode>
+      <FileName>CFIOMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PRACTICE_NUM" Collapsed="true">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAABIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TEMP_FUNC_NUM" Collapsed="true">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Enum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
