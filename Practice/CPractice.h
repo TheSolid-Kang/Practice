@@ -1,7 +1,6 @@
 #pragma once
 #include "Headers.h"
 #include "Enum.h"
-#include <boost/noncopyable.hpp>
 
 class IPractice
 {
@@ -16,7 +15,7 @@ protected:
 	virtual void release(void) = 0;
 };
 
-class CPractice : public IPractice, public boost::noncopyable
+class CPractice : public IPractice
 {
 public:
 	CPractice();
