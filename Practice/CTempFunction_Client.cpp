@@ -73,7 +73,7 @@ void CTempFunction_Client::init_func(void)
       while (++i <= r_map_response.size())
       {
         std::string msg = "  ";
-        ::WriteFile(pipe_handle, msg.c_str(), strlen(msg.c_str()), &dword_nwrite, NULL);
+        ::WriteFile(pipe_handle, msg.c_str(), (int)strlen(msg.c_str()), &dword_nwrite, NULL);
         std::cout << "작성 == " << msg << std::endl;
         memset(buf, 0x00, BUF_SIZE);
         ::FlushFileBuffers(pipe_handle);

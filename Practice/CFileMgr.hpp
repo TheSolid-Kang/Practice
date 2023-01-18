@@ -15,8 +15,6 @@ using TString = std::wstring;
 using TString = std::string;
 #endif;
 
-#define MAX_PATH 1024
-
 class CFileMgr {
 public:
 	static TString GetOpenFileDialg() {
