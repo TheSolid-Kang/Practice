@@ -49,11 +49,14 @@
     <Filter Include="02.CTempFunction\02.CTempFunction_Server">
       <UniqueIdentifier>{e5d62041-b18f-48c0-aaae-194d45ad24d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.main\00.Console">
+      <UniqueIdentifier>{4b46e99f-948a-4847-a196-1c61a6b388bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.main\01.WinMain">
+      <UniqueIdentifier>{ab937777-f81b-424b-95ab-ac5be7782f01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>00.main</Filter>
-    </ClCompile>
     <ClCompile Include="CPractice.cpp">
       <Filter>01.CPractice</Filter>
     </ClCompile>
@@ -83,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="CTempFunction_Client.cpp">
       <Filter>02.CTempFunction\03.CTempFunction_Client</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>00.main\00.Console</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>00.main\01.WinMain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
