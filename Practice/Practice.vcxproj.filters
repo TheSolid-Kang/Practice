@@ -99,9 +99,6 @@
     <ClCompile Include="BoostUnitTest.cpp">
       <Filter>03.CUnitTest</Filter>
     </ClCompile>
-    <ClCompile Include="GoogleUnitTest.cpp">
-      <Filter>03.CUnitTest</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPractice.h">

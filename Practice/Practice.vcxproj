@@ -279,7 +279,6 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClCompile Include="CTempFunction_CodingTest.cpp" />
     <ClCompile Include="CTempFunction_File.cpp" />
     <ClCompile Include="CTempFunction_Server.cpp" />
-    <ClCompile Include="GoogleUnitTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
