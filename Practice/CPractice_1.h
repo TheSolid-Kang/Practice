@@ -28,6 +28,8 @@ protected:
 		-> std::array<std::common_type_t<Args...>, sizeof ...(_args)>
 	{ return { std::forward<std::common_type_t<Args...>>((Args&&)_args)... }; }
 
+private://230120_TEST
+	void _Test(TCHAR* pch){ std::tcout << pch << std::endl; }
 
 };
 

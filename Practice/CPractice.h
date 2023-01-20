@@ -35,6 +35,7 @@ protected:
 	virtual void init_selected_func(void) override;
 	virtual void render(void) override;
 	virtual void render(const void* _p_void) override;
+	void render(TCHAR* _str) { render(TString(_str)); }
 	void render(TString& _str) override;
 	void render(TString&& _str) { render(_str); };
 	virtual int update(int _event = 0) override;

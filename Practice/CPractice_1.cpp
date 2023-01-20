@@ -70,16 +70,23 @@ void CPractice_1::init_func(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			//방법 1. = { 0 }
-			std::list<TString> map_str1 = { 0 };
+			//230120
+			//TString 헤더에서 빼야함.
+			//TCHAR 테스트 한 후 작업 진행
 
-			//방법 2. = ZeroMemory(변수의 참조, 자료형의 크기)
-			std::list<TString> map_str2;
-			ZeroMemory(&map_str2, sizeof(map_str2));
+			TCHAR* ch_temp = const_cast<TCHAR*>(_T(" asdf "));
+			CPractice::render(ch_temp);
 
-			//방법 2. = ZeroMemory(변수의 참조, 0, 자료형의 크기)
-			std::list<TString> map_str3;
-			std::memset(&map_str3, 0, sizeof(map_str3));
+			auto Test = [](TCHAR* pch) {
+				std::tcout << pch << std::endl;
+			};
+			Test(ch_temp);
+
+			auto Test2 = [&](TString&& str) {
+				_Test(const_cast<TCHAR*>(str.c_str()));
+			};
+
+			Test2(ch_temp);
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {

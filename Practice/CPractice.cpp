@@ -50,6 +50,7 @@ void CPractice::render(const void* _p_void)
 
 void CPractice::render(TString& _str)
 {
+	std::tcout << _str << std::endl;
 }
 
 int CPractice::update(int _event)
