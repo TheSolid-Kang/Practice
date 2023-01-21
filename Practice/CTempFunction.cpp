@@ -7,20 +7,20 @@
 
 CTempFunction::CTempFunction()
 {
-	(*this).initialize();
+	(*this)._Initialize();
 }
 
 CTempFunction::~CTempFunction()
 {
 }
 
-void CTempFunction::initialize()
+void CTempFunction::_Initialize()
 {
-	(*this).init_func();
-	(*this).init_selected_func();
+	(*this)._InitFunc();
+	(*this)._InitSelectedFunc();
 }
 
-void CTempFunction::init_func(void)
+void CTempFunction::_InitFunc(void)
 {
 	m_map_func.emplace(std::make_pair(static_cast<size_t>(COMMON_FUNC::PRINT_TITLE), [&](const void* _p_void) -> std::shared_ptr<void> {
 		StringBuilder str_buil;
@@ -31,32 +31,32 @@ void CTempFunction::init_func(void)
 		}));
 }
 
-void CTempFunction::init_selected_func(void)
+void CTempFunction::_InitSelectedFunc(void)
 {
 	m_map_selected_func.emplace(std::make_pair(static_cast<size_t>(COMMON_SELECTED_FUNC::PRINT_TITLE), [&](const void* _p_void) -> std::shared_ptr<void> {
 		return m_map_func[static_cast<size_t>(COMMON_FUNC::PRINT_TITLE)](nullptr);
 		}));
 }
 
-void CTempFunction::render(void)
+void CTempFunction::_Render(void)
 {
 }
 
-void CTempFunction::render(const void* _p_void)
+void CTempFunction::_Render(const void* _p_void)
 {
 }
 
-void CTempFunction::render(TString& _str)
+void CTempFunction::_Render(TString& _str)
 {
 	std::tcout << _str << std::endl;
 }
 
-int CTempFunction::update(int _event )
+int CTempFunction::_Update(int _event )
 {
 	return 0;
 }
 
-void CTempFunction::release(void)
+void CTempFunction::_Release(void)
 {
 }
 
@@ -65,14 +65,14 @@ int CTempFunction::Execute()
 {
 	system("pause");
 	system("cls");
-	initialize();
-	render();
+	_Initialize();
+	_Render();
 	int result = 0;
 	int selected_func = CIO::ask_and_return_integer();
 	if (selected_func > static_cast<int>(COMMON_SELECTED_FUNC::PRINT_TITLE) && selected_func < m_map_selected_func.size())
-		result = update(selected_func);
+		result = _Update(selected_func);
 
-	release();
+	_Release();
 	auto memory_info = _CrtDumpMemoryLeaks();
 	std::tcout << _T("Memory: ") << memory_info << std::endl;
 	return result;

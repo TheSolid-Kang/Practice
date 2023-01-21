@@ -12,7 +12,7 @@ using TString = std::string;
 class KMP
 {
 private:
-	static std::unique_ptr<std::vector<int> > get_pi(const TString& _strSearchKey) {
+	static std::unique_ptr<std::vector<int> > _GetPi(const TString& _strSearchKey) {
 		int j = 0;
 		int iSearchKeySize = (int)_strSearchKey.size();
 		std::unique_ptr<std::vector<int> > uniq_vec_pi = std::make_unique<std::vector<int>>(iSearchKeySize, 0);
@@ -33,7 +33,7 @@ public:
 		int iTextSize = (int)_strText.size();
 		int iSearchKeySize = (int)_strSearchKey.size();
 
-		decltype(auto) uniq_vec_pi = get_pi(_strSearchKey);
+		decltype(auto) uniq_vec_pi = _GetPi(_strSearchKey);
 		std::unique_ptr<std::vector<int>> uniq_vec_addr = std::make_unique<std::vector<int>>();
 
 		for (int i = 0; i < iTextSize; ++i)

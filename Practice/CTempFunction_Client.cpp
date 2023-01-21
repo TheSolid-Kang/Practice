@@ -10,23 +10,23 @@ CTempFunction_Client::~CTempFunction_Client()
 {
 }
 
-void CTempFunction_Client::initialize(void)
+void CTempFunction_Client::_Initialize(void)
 {
-  auto arr_title = build_array(_T(" ")
+  auto arr_title = _BuildArray(_T(" ")
     , _T("1. 파이프 클라이언트")
     , _T("")
     , _T("99. EXIT"));
   m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
-  init_func();
-  init_selected_func();
+  _InitFunc();
+  _InitSelectedFunc();
 }
 
-void CTempFunction_Client::init_func(void)
+void CTempFunction_Client::_InitFunc(void)
 {
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
     return nullptr; }));
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::RESPOND_TEMP), [&](const void* _p_void) -> std::shared_ptr<void> {
-    auto arr_response = build_array("BENDINGCOUNT", "CUTTINGCOUNT", "STATUS", "WIRESTATE", "WIRELEN", "EQUIPMENT_NAME");
+    auto arr_response = _BuildArray("BENDINGCOUNT", "CUTTINGCOUNT", "STATUS", "WIRESTATE", "WIRELEN", "EQUIPMENT_NAME");
     auto shar_map_response = std::make_shared<std::map<std::string, std::string>>();
     for (auto _response : arr_response)
       (*shar_map_response)[_response] = "0";
@@ -91,7 +91,7 @@ void CTempFunction_Client::init_func(void)
 }
 
 
-void CTempFunction_Client::init_selected_func(void)
+void CTempFunction_Client::_InitSelectedFunc(void)
 {
   m_map_selected_func.emplace(std::make_pair(static_cast<size_t>(SELECTED_FUNC::PIPE_CLIENT), [&](const void* _p_void) -> std::shared_ptr<void> {
     //auto shar_pipe_handle = m_map_func[static_cast<size_t>(FUNC::CREATE_PIPE_HANDLE)](nullptr);
@@ -104,22 +104,22 @@ void CTempFunction_Client::init_selected_func(void)
 }
 
 
-void CTempFunction_Client::render(void)
+void CTempFunction_Client::_Render(void)
 {
   auto shar_title = m_map_selected_func[static_cast<size_t>(COMMON_SELECTED_FUNC::PRINT_TITLE)](nullptr);
-  CTempFunction::render(*(TString*)shar_title.get());
+  CTempFunction::_Render(*(TString*)shar_title.get());
 }
 
-void CTempFunction_Client::render(const void* _p_void)
+void CTempFunction_Client::_Render(const void* _p_void)
 {
 }
 
-int CTempFunction_Client::update(int _event)
+int CTempFunction_Client::_Update(int _event)
 {
   m_map_selected_func[static_cast<size_t>(_event)](nullptr);
   return 0;
 }
 
-void CTempFunction_Client::release(void)
+void CTempFunction_Client::_Release(void)
 {
 }

@@ -20,7 +20,6 @@
 
 #include <type_traits>
 
-//#include <boost/any.hpp>
 
 #include "CIO.hpp"
 #include "KMP.h"

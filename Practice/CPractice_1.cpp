@@ -12,29 +12,29 @@ CPractice_1::~CPractice_1()
 
 }
 
-void CPractice_1::initialize()
+void CPractice_1::_Initialize()
 {
-	auto arr_title = build_array(_T(" ")
+	auto arr_title = _BuildArray(_T(" ")
 		, _T("1. ")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT")
 	);
 	m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
-	init_func();
-	init_selected_func();
+	_InitFunc();
+	_InitSelectedFunc();
 }
 
-void CPractice_1::render() 
+void CPractice_1::_Render() 
 {
 	std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&](const TString& _title) { std::tcout << _title << std::endl; });
 }
 
-void CPractice_1::render(const void* _p_void)
+void CPractice_1::_Render(const void* _p_void)
 {
 }
 
-int CPractice_1::update(int _event)
+int CPractice_1::_Update(int _event)
 {
 	switch (CIO::ask_and_return_integer())
 	{
@@ -61,25 +61,32 @@ int CPractice_1::update(int _event)
 	return 0;
 }
 
-void CPractice_1::release()
+void CPractice_1::_Release()
 {
 
 }
 
-void CPractice_1::init_func(void)
+void CPractice_1::_InitFunc(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			//방법 1. = { 0 }
-			std::list<TString> map_str1 = { 0 };
+			//230120
+			//TString 헤더에서 빼야함.
+			//TCHAR 테스트 한 후 작업 진행
 
-			//방법 2. = ZeroMemory(변수의 참조, 자료형의 크기)
-			std::list<TString> map_str2;
-			ZeroMemory(&map_str2, sizeof(map_str2));
+			TCHAR* ch_temp = const_cast<TCHAR*>(_T(" asdf "));
+			CPractice::_Render(ch_temp);
 
-			//방법 2. = ZeroMemory(변수의 참조, 0, 자료형의 크기)
-			std::list<TString> map_str3;
-			std::memset(&map_str3, 0, sizeof(map_str3));
+			auto Test = [](TCHAR* pch) {
+				std::tcout << pch << std::endl;
+			};
+			Test(ch_temp);
+
+			auto Test2 = [&](TString&& str) {
+				_Test(const_cast<TCHAR*>(str.c_str()));
+			};
+
+			Test2(ch_temp);
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
@@ -99,7 +106,7 @@ void CPractice_1::init_func(void)
 			return nullptr; }));
 }
 
-void CPractice_1::init_selected_func(void)
+void CPractice_1::_InitSelectedFunc(void)
 {
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {

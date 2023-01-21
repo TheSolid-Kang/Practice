@@ -10,19 +10,19 @@ CTempFunction_Server::~CTempFunction_Server()
 {
 }
 
-void CTempFunction_Server::initialize(void)
+void CTempFunction_Server::_Initialize(void)
 {
-  auto arr_title = build_array(_T(" ")
+  auto arr_title = _BuildArray(_T(" ")
     , _T("1. 파이프 서버 구현")
     , _T("2. ")
     , _T("")
     , _T("99. EXIT"));
   m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
-  init_func();
-  init_selected_func();
+  _InitFunc();
+  _InitSelectedFunc();
 }
 
-void CTempFunction_Server::init_func(void)
+void CTempFunction_Server::_InitFunc(void)
 {
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
     return nullptr; }));
@@ -32,7 +32,7 @@ void CTempFunction_Server::init_func(void)
   /// </summary>
   /// <param name=""></param>
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::RESPOND_TEMP), [&](const void* _p_void) -> std::shared_ptr<void> {
-    auto arr_response = build_array("BENDINGCOUNT", "CUTTINGCOUNT", "STATUS", "WIRESTATE", "WIRELEN", "EQUIPMENT_NAME");
+    auto arr_response = _BuildArray("BENDINGCOUNT", "CUTTINGCOUNT", "STATUS", "WIRESTATE", "WIRELEN", "EQUIPMENT_NAME");
     auto shar_map_response = std::make_shared<std::map<std::string, std::string>>();
     for (auto _response : arr_response)
       (*shar_map_response)[_response] = "0";
@@ -199,7 +199,7 @@ void CTempFunction_Server::init_func(void)
 }
 
 
-void CTempFunction_Server::init_selected_func(void)
+void CTempFunction_Server::_InitSelectedFunc(void)
 {
   m_map_selected_func.emplace(std::make_pair(static_cast<size_t>(SELECTED_FUNC::PIPE_SERVER), [&](const void* _p_void) -> std::shared_ptr<void> {
     auto shar_pipe_handle = m_map_func[static_cast<size_t>(FUNC::CREATE_PIPE_HANDLE)](nullptr);
@@ -211,22 +211,22 @@ void CTempFunction_Server::init_selected_func(void)
 }
 
 
-void CTempFunction_Server::render(void)
+void CTempFunction_Server::_Render(void)
 {
   auto shar_title = m_map_selected_func[static_cast<size_t>(COMMON_SELECTED_FUNC::PRINT_TITLE)](nullptr);
-  CTempFunction::render(*(TString*)shar_title.get());
+  CTempFunction::_Render(*(TString*)shar_title.get());
 }
 
-void CTempFunction_Server::render(const void* _p_void)
+void CTempFunction_Server::_Render(const void* _p_void)
 {
 }
 
-int CTempFunction_Server::update(int _event)
+int CTempFunction_Server::_Update(int _event)
 {
   m_map_selected_func[static_cast<size_t>(_event)](nullptr);
   return 0;
 }
 
-void CTempFunction_Server::release(void)
+void CTempFunction_Server::_Release(void)
 {
 }
