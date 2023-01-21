@@ -34,4 +34,9 @@
 # KANG
 .vs/
 bin/
-x64/
+
+
+# 프로젝트 파일 내 중간 출력물 삭제
+Practice/x64/
+MySQL_DAO_v2/x64/
+PracticeGoogleUnitTest/x64/
