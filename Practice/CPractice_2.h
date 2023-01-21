@@ -15,17 +15,17 @@ private:
 
 private:
 	// CPractice을(를) 통해 상속됨
-	virtual void initialize(void) override;
-	virtual void init_func(void) override;
-	virtual void init_selected_func(void) override;
-	virtual void render(void) override;
-	virtual void render(const void* _p_void) override;
-	virtual int update(int _event = 0) override;
-	virtual void release(void) override;
+	virtual void _Initialize(void) override;
+	virtual void _InitFunc(void) override;
+	virtual void _InitSelectedFunc(void) override;
+	virtual void _Render(void) override;
+	virtual void _Render(const void* _p_void) override;
+	virtual int _Update(int _event = 0) override;
+	virtual void _Release(void) override;
 
 private:
 	template<typename... Args>//분석 필요: 이해 없이 컴파일되기에 사용하는 코드.
-	auto build_array(Args&&... _args)
+	auto _BuildArray(Args&&... _args)
 		->std::array<std::common_type_t<Args...>, sizeof ...(_args)>
 	{ return { std::forward < std::common_type_t<Args...>>((Args&&)_args)... }; }
 };

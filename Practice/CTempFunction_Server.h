@@ -25,11 +25,11 @@ private:
 
 private:
 	// ITempFunction을(를) 통해 상속됨
-	virtual void initialize(void) override;
-	virtual void init_func(void) override;
-	virtual void init_selected_func(void) override;
-	virtual void render(void) override;
-	virtual void render(const void* _p_void) override;
-	virtual int update(int _event = 0) override;
-	virtual void release(void) override;
+	virtual void _Initialize(void) override;
+	virtual void _InitFunc(void) override;
+	virtual void _InitSelectedFunc(void) override;
+	virtual void _Render(void) override;
+	virtual void _Render(const void* _p_void) override;
+	virtual int _Update(int _event = 0) override;
+	virtual void _Release(void) override;
 };

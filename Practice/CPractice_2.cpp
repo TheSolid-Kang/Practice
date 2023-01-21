@@ -17,28 +17,28 @@ CPractice_2::~CPractice_2()
 {
 }
 
-void CPractice_2::initialize()
+void CPractice_2::_Initialize()
 {
-	auto arr_title = build_array(_T(" ")
+	auto arr_title = _BuildArray(_T(" ")
 		, _T("1. ")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT") );
 	m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
-	init_func();
-	init_selected_func();
+	_InitFunc();
+	_InitSelectedFunc();
 }
 
-void CPractice_2::render() 
+void CPractice_2::_Render() 
 {
 	std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&](const TString& _title) {std::tcout << _title << std::endl; });
 }
 
-void CPractice_2::render(const void* _p_void)
+void CPractice_2::_Render(const void* _p_void)
 {
 }
 
-int CPractice_2::update(int _event)
+int CPractice_2::_Update(int _event)
 {
 	switch (CIO::ask_and_return_integer())
 	{
@@ -65,11 +65,11 @@ int CPractice_2::update(int _event)
 	return 0;
 }
 
-void CPractice_2::release()
+void CPractice_2::_Release()
 {
 }
 
-void CPractice_2::init_func(void)
+void CPractice_2::_InitFunc(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE)
 		, [&](const void* _p_void) {
@@ -93,7 +93,7 @@ void CPractice_2::init_func(void)
 			return nullptr; }));
 }
 
-void CPractice_2::init_selected_func(void)
+void CPractice_2::_InitSelectedFunc(void)
 {
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::ONE)
 		, [&](const void* _p_void) {return nullptr; }));

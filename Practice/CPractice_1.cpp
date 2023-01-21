@@ -12,29 +12,29 @@ CPractice_1::~CPractice_1()
 
 }
 
-void CPractice_1::initialize()
+void CPractice_1::_Initialize()
 {
-	auto arr_title = build_array(_T(" ")
+	auto arr_title = _BuildArray(_T(" ")
 		, _T("1. ")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT")
 	);
 	m_list_title.insert(m_list_title.end(), arr_title.begin(), arr_title.end());
-	init_func();
-	init_selected_func();
+	_InitFunc();
+	_InitSelectedFunc();
 }
 
-void CPractice_1::render() 
+void CPractice_1::_Render() 
 {
 	std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&](const TString& _title) { std::tcout << _title << std::endl; });
 }
 
-void CPractice_1::render(const void* _p_void)
+void CPractice_1::_Render(const void* _p_void)
 {
 }
 
-int CPractice_1::update(int _event)
+int CPractice_1::_Update(int _event)
 {
 	switch (CIO::ask_and_return_integer())
 	{
@@ -61,12 +61,12 @@ int CPractice_1::update(int _event)
 	return 0;
 }
 
-void CPractice_1::release()
+void CPractice_1::_Release()
 {
 
 }
 
-void CPractice_1::init_func(void)
+void CPractice_1::_InitFunc(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
@@ -75,7 +75,7 @@ void CPractice_1::init_func(void)
 			//TCHAR 테스트 한 후 작업 진행
 
 			TCHAR* ch_temp = const_cast<TCHAR*>(_T(" asdf "));
-			CPractice::render(ch_temp);
+			CPractice::_Render(ch_temp);
 
 			auto Test = [](TCHAR* pch) {
 				std::tcout << pch << std::endl;
@@ -106,7 +106,7 @@ void CPractice_1::init_func(void)
 			return nullptr; }));
 }
 
-void CPractice_1::init_selected_func(void)
+void CPractice_1::_InitSelectedFunc(void)
 {
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
