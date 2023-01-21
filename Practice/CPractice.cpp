@@ -18,46 +18,46 @@ int CPractice::Execute()
 {
 	system("pause");
 	system("cls");
-	initialize();
-	render();
-	int result = update();
+	_Initialize();
+	_Render();
+	int result = _Update();
 
-	release();
+	_Release();
 	auto memory_info = _CrtDumpMemoryLeaks();
 	std::tcout << _T("Memory: ") << memory_info << std::endl;
 	return result;
 }
 
-void CPractice::initialize(void)
+void CPractice::_Initialize(void)
 {
 }
 
-void CPractice::init_func(void)
+void CPractice::_InitFunc(void)
 {
 }
 
-void CPractice::init_selected_func(void)
+void CPractice::_InitSelectedFunc(void)
 {
 }
 
-void CPractice::render(void)
+void CPractice::_Render(void)
 {
 }
 
-void CPractice::render(const void* _p_void)
+void CPractice::_Render(const void* _p_void)
 {
 }
 
-void CPractice::render(TString& _str)
+void CPractice::_Render(TString& _str)
 {
 	std::tcout << _str << std::endl;
 }
 
-int CPractice::update(int _event)
+int CPractice::_Update(int _event)
 {
 	return 0;
 }
 
-void CPractice::release(void)
+void CPractice::_Release(void)
 {
 }

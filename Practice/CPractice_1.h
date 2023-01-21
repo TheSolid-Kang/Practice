@@ -13,18 +13,18 @@ private:
 	std::unique_ptr<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>> m_uniq_map_testfunc;
 
 private:
-	virtual void initialize(void) override;
-	virtual void init_func(void) override;
-	virtual void init_selected_func(void) override;
-	virtual void render(void) override;
-	virtual void render(const void* _p_void) override;
-	virtual int update(int _event = 0) override;
-	virtual void release(void) override;
+	virtual void _Initialize(void) override;
+	virtual void _InitFunc(void) override;
+	virtual void _InitSelectedFunc(void) override;
+	virtual void _Render(void) override;
+	virtual void _Render(const void* _p_void) override;
+	virtual int _Update(int _event = 0) override;
+	virtual void _Release(void) override;
 
 
 protected:
 	template<typename... Args>
-	auto build_array(Args&&... _args)
+	auto _BuildArray(Args&&... _args)
 		-> std::array<std::common_type_t<Args...>, sizeof ...(_args)>
 	{ return { std::forward<std::common_type_t<Args...>>((Args&&)_args)... }; }
 

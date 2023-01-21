@@ -1,8 +1,8 @@
 #include "Headers.h"
 #include "CPracticeMgr.h"
 #include "CTempFunctionMgr.h"
-#include "Enum.h"
 
+const int EXIT = 99;
 void PrintTitle(int _selected_mgr = 0);
 
 #pragma region

@@ -1,4 +1,6 @@
 #include "Headers.h"
+#include "CPracticeMgr.h"
+#include "CTempFunctionMgr.h"
 
 #pragma region WIN32API
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

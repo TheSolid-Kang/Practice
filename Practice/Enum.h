@@ -1,8 +1,6 @@
-#pragma once
+#ifndef _ENUM_H_
+#define _ENUM_H_
 
-const int EXIT = 99;
-const TString BAEKJOON_DIR_PATH = _T("\\baekjoon\\");
-const TString PROGRAMMERS_DIR_PATH = _T("\\programmers\\");
 enum class PRACTICE_NUM : int {
 	PN_1 = 1
 	, PN_2
@@ -18,3 +16,4 @@ enum class TEMP_FUNC_NUM : int {
 
 	, END
 };
+#endif //_ENUM_H__
