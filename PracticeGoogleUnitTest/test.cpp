@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "gtest/gtest.h"
-#include "../Practice/CTempFunction_File.h"
 
+int test() { std::cout << "test"; return 1; }
 TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, []() -> int { return 1; });
+  EXPECT_EQ(test(), 1);
   EXPECT_TRUE(true);
+  system("cls");
 }

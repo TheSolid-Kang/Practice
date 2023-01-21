@@ -76,6 +76,9 @@
     <Filter Include="98.Headers\06.CIO">
       <UniqueIdentifier>{7f4d47aa-defa-4e57-963a-9c03b2158ffb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.CDataStructure">
+      <UniqueIdentifier>{edace903-5101-4901-aa1c-258660ab9621}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
