@@ -79,6 +79,12 @@
     <Filter Include="03.CDataStructure">
       <UniqueIdentifier>{edace903-5101-4901-aa1c-258660ab9621}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.CAlgorithm">
+      <UniqueIdentifier>{748dd51f-5692-460d-9b8a-2abcff420ca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.CUnitTest">
+      <UniqueIdentifier>{42a29c16-7553-438f-becb-f040fe906de1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -131,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="StringBuilder.cpp">
       <Filter>98.Headers\04.CStringBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="CUnitTest.cpp">
+      <Filter>96.CUnitTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="CIO.hpp">
       <Filter>98.Headers\06.CIO</Filter>
+    </ClInclude>
+    <ClInclude Include="CUnitTest.h">
+      <Filter>96.CUnitTest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
