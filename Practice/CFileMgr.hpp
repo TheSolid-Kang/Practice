@@ -21,7 +21,7 @@ public:
 		OPENFILENAME OFN;
 		TCHAR filePathName[MAX_PATH] = _T("");
 		TCHAR lpstrFile[MAX_PATH] = _T("");
-		static TCHAR filter[] = _T("모든 파일\0*.*\0텍스트 파일\0*.txt\0fbx 파일\0*.fbx");
+		TCHAR filter[] = _T("모든 파일\0*.*\0텍스트 파일\0*.txt\0fbx 파일\0*.fbx");
 		HWND hWnd = NULL;
 
 		memset(&OFN, 0, sizeof(OPENFILENAME));
