@@ -289,6 +289,7 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
   <ItemGroup>
     <ClInclude Include="CFileMgr.hpp" />
     <ClInclude Include="CFIOMgr.hpp" />
+    <ClInclude Include="CForwardList.hpp" />
     <ClInclude Include="CINIMgr.hpp" />
     <ClInclude Include="CIO.hpp" />
     <ClInclude Include="CMyEtc.hpp" />
