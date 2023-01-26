@@ -79,6 +79,9 @@
     <Filter Include="03.CDataStructure">
       <UniqueIdentifier>{edace903-5101-4901-aa1c-258660ab9621}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.CDataStructure\00.CForwardList">
+      <UniqueIdentifier>{d252b353-2d80-44a3-ad43-d503567cbda4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="CIO.hpp">
       <Filter>98.Headers\06.CIO</Filter>
+    </ClInclude>
+    <ClInclude Include="CForwardList.hpp">
+      <Filter>03.CDataStructure\00.CForwardList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
