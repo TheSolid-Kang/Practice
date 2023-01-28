@@ -92,7 +92,13 @@ void CPractice_1::_InitFunc(void)
 			forwardList.remove(1);
 			forwardList.remove_if([](auto _first) -> bool { return _first >= 3 ? true : false; });
 
+			auto iter = forwardList.begin();
+
+
+
 			forwardList.clear();
+
+
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
