@@ -129,7 +129,13 @@ void CPractice_1::_InitFunc(void)
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::THREE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-
+			auto path = CFileMgr::GetOpenFolderDialg(_T("C:\\"));
+			auto vec_file_name = CFIOMgr::GetRecursiveFilesInDirectory(path);
+			for (auto _file_name : vec_file_name)
+			{
+				TCHAR* path = const_cast<TCHAR*>(_file_name.c_str());
+				std::tcout << CFileMgr::GetFileType(path) << std::endl;
+			}
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR),
 		[&](const void* _p_void) -> std::shared_ptr<void> {

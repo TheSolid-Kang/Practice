@@ -8,12 +8,15 @@
 #include <stdio.h>//ExecuteFile () 
 
 #include <shlobj_core.h> //open folder dialog
-
+#include <string>
+#include <atlcore.h>
 #if UNICODE 
 using TString = std::wstring;
 #else
 using TString = std::string;
 #endif;
+
+ 
 
 class CFileMgr {
 public:
@@ -123,5 +126,27 @@ public:
 		}
 
 		return _T("");
+	}
+
+	static TCHAR* GetFileType(TCHAR* _path) 
+	{
+		static TCHAR buf[MAX_PATH] = _T("");
+		bool ret = false;
+		TCHAR* ptr = nullptr;
+#if UNICODE
+		ptr = wcsrchr(_path, _T('.'));
+		if (ptr == nullptr)
+			return nullptr; 
+		wcscpy(buf, ptr + 1);//wcscpy 함수 사용하기 위해 C++/전처리기: _CRT_SECURE_NO_WARNINGS 추가함.
+#else
+		ptr = strrchr(_path, _T('.'));
+		if (ptr == nullptr)
+			return nullptr;
+		strcpy(buf, ptr + 1);
+#endif
+
+
+
+		return buf;
 	}
 };
