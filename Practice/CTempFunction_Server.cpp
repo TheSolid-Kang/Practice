@@ -27,6 +27,20 @@ void CTempFunction_Server::_InitFunc(void)
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::ROOT), [&](const void* _p_void) -> std::shared_ptr<void> {
     return nullptr; }));
 #pragma region 파이프 서버 구현부
+  m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::SET_PIPE_NAME), [&](const void* _p_void) -> std::shared_ptr<void> {
+    TString exePath = CFileMgr::GetEXEFilePath();
+    TString dirPath = exePath + _T("\\Server");
+    TString settingIniPath = dirPath + _T("\\Setting.ini");
+    //실행 경로에 Server 폴더가 없는 경우 Server 폴더 생성
+    if (false == std::filesystem::is_directory(dirPath))
+      CFileMgr::CreateDirectorys(dirPath);
+
+    //Server 폴더에 Setting.ini가 없는 경우 Setting.ini파일 생성한 후 내용 채워넣음.
+    if (false == std::filesystem::exists(settingIniPath))
+      CINIMgr::WritePrivateProfileString_INI(_T("SET"), _T("PIPE_NAME"), _T("\\\\.\\pipe\\echo"), settingIniPath);
+    m_PIPE_NAME = CINIMgr::GetPrivateProfileString_INI(_T("SET"), _T("PIPE_NAME"), settingIniPath);
+
+    return nullptr; }));
   /// <summary>
   /// 
   /// </summary>
@@ -96,8 +110,8 @@ void CTempFunction_Server::_InitFunc(void)
 
     char buf[BUF_SIZE] = { 0, };
     //1. 파이프 생성
-    pipe_handle = ::CreateNamedPipeA(
-      PIPE_NAME
+    pipe_handle = ::CreateNamedPipe(
+      m_PIPE_NAME.c_str()
       , PIPE_ACCESS_DUPLEX //양방향모드
       , PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT //message type pipe,  message-read mode, blocking mode
       , PIPE_UNLIMITED_INSTANCES //최대 255개 인스턴스
@@ -202,6 +216,7 @@ void CTempFunction_Server::_InitFunc(void)
 void CTempFunction_Server::_InitSelectedFunc(void)
 {
   m_map_selected_func.emplace(std::make_pair(static_cast<size_t>(SELECTED_FUNC::PIPE_SERVER), [&](const void* _p_void) -> std::shared_ptr<void> {
+    m_map_func[static_cast<size_t>(FUNC::SET_PIPE_NAME)](nullptr);
     auto shar_pipe_handle = m_map_func[static_cast<size_t>(FUNC::CREATE_PIPE_HANDLE)](nullptr);
     HANDLE& pipe_handle = *(HANDLE*)shar_pipe_handle.get();
 
