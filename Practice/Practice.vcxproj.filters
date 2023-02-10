@@ -82,6 +82,9 @@
     <Filter Include="03.CDataStructure\00.CForwardList">
       <UniqueIdentifier>{d252b353-2d80-44a3-ad43-d503567cbda4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="98.Headers\07.CLogger">
+      <UniqueIdentifier>{94d77953-1a2a-4ca0-b8c0-7c0e717d9393}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -199,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="CForwardList.hpp">
       <Filter>03.CDataStructure\00.CForwardList</Filter>
+    </ClInclude>
+    <ClInclude Include="CLogger.hpp">
+      <Filter>98.Headers\07.CLogger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
