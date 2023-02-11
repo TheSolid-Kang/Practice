@@ -287,6 +287,7 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDoubleLinkedList.hpp" />
     <ClInclude Include="CFileMgr.hpp" />
     <ClInclude Include="CFIOMgr.hpp" />
     <ClInclude Include="CForwardList.hpp" />

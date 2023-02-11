@@ -82,6 +82,9 @@
     <Filter Include="03.CDataStructure\00.CForwardList">
       <UniqueIdentifier>{d252b353-2d80-44a3-ad43-d503567cbda4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.CDataStructure\01.CDoubleLinkedList">
+      <UniqueIdentifier>{3f528010-3ebc-44f9-806c-f09b34f048e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -199,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="CForwardList.hpp">
       <Filter>03.CDataStructure\00.CForwardList</Filter>
+    </ClInclude>
+    <ClInclude Include="CDoubleLinkedList.hpp">
+      <Filter>03.CDataStructure\01.CDoubleLinkedList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
