@@ -281,6 +281,7 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClCompile Include="CTempFunction_CodingTest.cpp" />
     <ClCompile Include="CTempFunction_File.cpp" />
     <ClCompile Include="CTempFunction_Server.cpp" />
+    <ClCompile Include="CUnitTest.cpp" />
     <ClCompile Include="KMP.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StringBuilder.cpp" />
@@ -305,6 +306,7 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClInclude Include="CTempFunction_CodingTest.h" />
     <ClInclude Include="CTempFunction_File.h" />
     <ClInclude Include="CTempFunction_Server.h" />
+    <ClInclude Include="CUnitTest.h" />
     <ClInclude Include="DEFINE_MGR.hpp" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Headers.h" />

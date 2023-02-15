@@ -88,6 +88,12 @@
     <Filter Include="98.Headers\07.CLogger">
       <UniqueIdentifier>{94d77953-1a2a-4ca0-b8c0-7c0e717d9393}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.CAlgorithm">
+      <UniqueIdentifier>{748dd51f-5692-460d-9b8a-2abcff420ca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.CUnitTest">
+      <UniqueIdentifier>{42a29c16-7553-438f-becb-f040fe906de1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -140,6 +146,9 @@
     </ClCompile>
     <ClCompile Include="StringBuilder.cpp">
       <Filter>98.Headers\04.CStringBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="CUnitTest.cpp">
+      <Filter>96.CUnitTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="CLogger.hpp">
       <Filter>98.Headers\07.CLogger</Filter>
+    </ClInclude>
+    <ClInclude Include="CUnitTest.h">
+      <Filter>96.CUnitTest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
