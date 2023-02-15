@@ -85,6 +85,9 @@
     <Filter Include="03.CDataStructure\01.CDoubleLinkedList">
       <UniqueIdentifier>{3f528010-3ebc-44f9-806c-f09b34f048e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="98.Headers\07.CLogger">
+      <UniqueIdentifier>{94d77953-1a2a-4ca0-b8c0-7c0e717d9393}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -205,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="CDoubleLinkedList.hpp">
       <Filter>03.CDataStructure\01.CDoubleLinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="CLogger.hpp">
+      <Filter>98.Headers\07.CLogger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

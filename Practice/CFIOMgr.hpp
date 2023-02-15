@@ -7,19 +7,7 @@
 #include <filesystem>
 #include <Windows.h>
 #include <atlconv.h>
-#if UNICODE 
-using TString = std::wstring;
-using tifstream = std::wifstream;
-using tofstream = std::wofstream;
-#define tcout  wcout
-#define tcin  wcin
-#else
-using TString = std::string;
-using tifstream = std::ifstream;
-using tofstream = std::ofstream;
-#define tcout  cout
-#define tcin  wcin
-#endif;
+
 
 
 
@@ -35,6 +23,19 @@ enum class FILE_TYPE : int {
 };
 class CFIOMgr
 {
+#if UNICODE 
+	using TString = std::wstring;
+	using tifstream = std::wifstream;
+	using tofstream = std::wofstream;
+#define tcout  wcout
+#define tcin  wcin
+#else
+	using TString = std::string;
+	using tifstream = std::ifstream;
+	using tofstream = std::ofstream;
+#define tcout  cout
+#define tcin  wcin
+#endif;
 	//1. Directory 내 파일 생성
 //2. Directory 내 파일 목록 출력
 //3. 파일 쓰기 

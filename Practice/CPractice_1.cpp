@@ -96,7 +96,13 @@ void CPractice_1::_InitFunc(void)
 			forwardList.remove(1);
 			forwardList.remove_if([](auto _first) -> bool { return _first >= 3 ? true : false; });
 
+			auto iter = forwardList.begin();
+
+
+
 			forwardList.clear();
+
+
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
@@ -127,10 +133,17 @@ void CPractice_1::_InitFunc(void)
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::THREE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-
+			auto path = CFileMgr::GetOpenFolderDialg(_T("C:\\"));
+			auto vec_file_name = CFIOMgr::GetRecursiveFilesInDirectory(path);
+			for (auto _file_name : vec_file_name)
+			{
+				TCHAR* path = const_cast<TCHAR*>(_file_name.c_str());
+				std::tcout << CFileMgr::GetFileType(path) << std::endl;
+			}
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
+
 			CDoubleLinkedList<int> doubleLinkedList;
 			doubleLinkedList.push_back(10);
 			doubleLinkedList.push_front(9);
@@ -146,6 +159,13 @@ void CPractice_1::_InitFunc(void)
 			std::cout << "pop_back : " << std::to_string(doubleLinkedList.pop_back()) << std::endl;
 
 			doubleLinkedList.clear();
+
+			auto vec_file_name = CFileMgr::getTxtFiles(_T("C:\\Caleb\\CalebRecord"));
+			for (auto _file_name : vec_file_name)
+			{
+				TCHAR* path = const_cast<TCHAR*>(_file_name.c_str());
+				std::tcout << CFileMgr::GetFileType(path) << std::endl;
+			}
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FIVE),

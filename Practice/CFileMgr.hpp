@@ -1,6 +1,8 @@
 #pragma once
 #include <Windows.h>
 #include <commdlg.h> //open file dialog
+#include <iostream>
+
 #include <string>
 #include <tchar.h>
 
@@ -8,20 +10,36 @@
 #include <stdio.h>//ExecuteFile () 
 
 #include <shlobj_core.h> //open folder dialog
+#include <string>
+#include <atlcore.h>
 
-#if UNICODE 
-using TString = std::wstring;
-#else
-using TString = std::string;
-#endif;
+
+#include <fstream>
+#include <filesystem>
+
+
+
 
 class CFileMgr {
+#if UNICODE 
+	using TString = std::wstring;
+	using tifstream = std::wifstream;
+	using tofstream = std::wofstream;
+#define tcout  wcout
+#define tcin  wcin
+#else
+	using TString = std::string;
+	using tifstream = std::ifstream;
+	using tofstream = std::ofstream;
+#define tcout  cout
+#define tcin  wcin
+#endif;
 public:
 	static TString GetOpenFileDialg() {
 		OPENFILENAME OFN;
 		TCHAR filePathName[MAX_PATH] = _T("");
 		TCHAR lpstrFile[MAX_PATH] = _T("");
-		static TCHAR filter[] = _T("모든 파일\0*.*\0텍스트 파일\0*.txt\0fbx 파일\0*.fbx");
+		TCHAR filter[] = _T("모든 파일\0*.*\0텍스트 파일\0*.txt\0fbx 파일\0*.fbx");
 		HWND hWnd = NULL;
 
 		memset(&OFN, 0, sizeof(OPENFILENAME));
@@ -124,4 +142,116 @@ public:
 
 		return _T("");
 	}
+
+	static TCHAR* GetFileType(TCHAR* _path) 
+	{
+		static TCHAR buf[MAX_PATH] = _T("");
+		bool ret = false;
+		TCHAR* ptr = nullptr;
+#if UNICODE
+		ptr = wcsrchr(_path, _T('.'));
+		if (ptr == nullptr)
+			return nullptr; 
+		wcscpy(buf, ptr + 1);//wcscpy 함수 사용하기 위해 C++/전처리기: _CRT_SECURE_NO_WARNINGS 추가함.
+#else
+		ptr = strrchr(_path, _T('.'));
+		if (ptr == nullptr)
+			return nullptr;
+		strcpy(buf, ptr + 1);
+#endif
+
+
+
+		return buf;
+	}
+
+	static std::vector<TString> getTxtFiles(const TString& dirPath) {
+		std::vector<TString> txtFiles;
+		TString searchPath = dirPath + _T("\\*.txt");
+		WIN32_FIND_DATA fd;
+		HANDLE hFind = ::FindFirstFile(searchPath.c_str(), &fd);
+		if (hFind != INVALID_HANDLE_VALUE) {
+			do {
+				txtFiles.push_back(fd.cFileName);
+			} while (::FindNextFile(hFind, &fd));
+			::FindClose(hFind);
+		}
+		return txtFiles;
+	}
+	//0. 실행파일 경로 구하기
+	static TString GetEXEFilePath() {
+		//1. 실행파일 경로 구하기 
+		TCHAR path[MAX_PATH] = { 0, };
+		GetModuleFileName(NULL, path, MAX_PATH);
+		TString exe_path = path;
+		exe_path = exe_path.substr(0, exe_path.find_last_of(_T("\\/")));
+		return exe_path;
+	}
+	//1-1. Directory 내 파일 생성
+	static void CreateNewFile(TString _path, TString _file_name) {
+		TString file_path = _path + _file_name;
+		tofstream fout = tofstream(file_path);//파일 열기_만약 파일이 없으면 만듦.
+
+		std::tcout << _T("fout.is_open() == ") << fout.is_open() << std::endl;
+		if (true == fout.is_open())
+			fout.close();
+	}
+	//1-2. Directory 내 하위 폴더 차례대로 생성
+	static void CreateDirectorys(const TString& _path) {
+		TString path(_path.begin(), _path.end());
+		TCHAR arr_dir_name[256] = { 0, };
+		TCHAR* ch_ptr_path = const_cast<TCHAR*>(path.c_str());
+		TCHAR* ch_ptr_dirname = arr_dir_name;
+
+		while (*ch_ptr_path) {
+			if ((_T('\\') == *ch_ptr_path) || (_T('/') == *ch_ptr_path)) {
+				if (_T(':') != *(ch_ptr_path - 1))
+					CreateDirectory(arr_dir_name, NULL);
+			}
+			*ch_ptr_dirname++ = *ch_ptr_path++;
+			*ch_ptr_dirname = _T('\0');
+		}
+		CreateDirectory(arr_dir_name, NULL);
+	}
+
+
+	//2-1. Directory 내 파일 목록 출력
+	static std::vector<TString> GetFilesInDirectory(TString& _path) {
+		std::vector<TString> vec_files;
+		vec_files.reserve(1024);
+		auto iter = std::filesystem::directory_iterator(_path);
+		while (true != iter._At_end()) {
+#if UNICODE 
+			vec_files.emplace_back((*iter++).path().wstring());//std::filesystem::path -> std::string 으로 변환
+#else
+			vec_files.emplace_back((*iter++).path().string());//std::filesystem::path -> std::string 으로 변환
+#endif;
+		}
+		vec_files.shrink_to_fit();
+		return vec_files;
+	}
+	//2-2. Directory 내 파일 목록 출력
+	static std::vector<TString> GetRecursiveFilesInDirectory(TString& _path) {
+		std::vector<TString> vec_files;
+		vec_files.reserve(1024);
+		auto iter = std::filesystem::directory_iterator(_path);
+		while (true != iter._At_end()) {
+			std::filesystem::path file_path = (*iter++).path();
+#if UNICODE 
+			TString str_file_path = file_path.wstring();//std::filesystem::path -> std::wstring 으로 변환
+#else
+			TString file_path(file_path.string());//std::filesystem::path -> std::string 으로 변환
+#endif;
+			if (std::filesystem::is_directory(file_path)) {
+				auto vec_recursive_file = GetRecursiveFilesInDirectory(str_file_path);
+				vec_files.insert(vec_files.end(), vec_recursive_file.begin(), vec_recursive_file.end());
+			}
+			else
+				vec_files.emplace_back(str_file_path);
+
+		}
+		vec_files.shrink_to_fit();
+		return vec_files;
+	}
+
 };
