@@ -9,12 +9,15 @@ public:
 private:
 	enum class FUNC : size_t {
 		ROOT = static_cast<size_t>(COMMON_FUNC::END)
+		, SET_FILE_INI
+		, GET_FILE_LIST
 		, END
 	};
 	enum class SELECTED_FUNC : size_t {
-		ROOT = static_cast<size_t>(COMMON_SELECTED_FUNC::END)
+		FIND_FILE = 1
 		, END
 	};
+
 private:
 	// ITempFunction을(를) 통해 상속됨
 	virtual void _Initialize(void) override;
