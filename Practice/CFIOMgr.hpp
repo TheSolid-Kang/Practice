@@ -152,9 +152,19 @@ public:
 		vec_files.shrink_to_fit();
 		return vec_files;
 	}
-	//3. 파일 쓰기 
+	//3_1. 파일 쓰기 
 	static void WriteText(const TString& _path, const TString& _text) {
 		tofstream fout = tofstream(_path, std::ios::binary);//파일 열기_만약 파일이 없으면 만듦.
+
+		if (true == fout.is_open()) {
+			fout << _text;
+			fout.close();
+		}
+	}
+
+	//3_2. 파일 이어 쓰기 
+	static void WriteAddingText(const TString& _path, const TString& _text) {
+		tofstream fout = tofstream(_path, std::ios_base::out | std::ios_base::app);//파일 열기_만약 파일이 없으면 만듦.
 
 		if (true == fout.is_open()) {
 			fout << _text;

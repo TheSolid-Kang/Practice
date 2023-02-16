@@ -188,8 +188,8 @@ public:
 		return exe_path;
 	}
 	//1-1. Directory 내 파일 생성
-	static void CreateNewFile(TString _path, TString _file_name) {
-		TString file_path = _path + _file_name;
+	static void CreateNewFile(TString _path) {
+		TString file_path = _path;
 		tofstream fout = tofstream(file_path);//파일 열기_만약 파일이 없으면 만듦.
 
 		std::tcout << _T("fout.is_open() == ") << fout.is_open() << std::endl;
