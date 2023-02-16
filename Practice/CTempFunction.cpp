@@ -46,7 +46,7 @@ void CTempFunction::_Render(const void* _p_void)
 {
 }
 
-void CTempFunction::_Render(TString& _str)
+void CTempFunction::_Render(TString _str)
 {
 	std::tcout << _str << std::endl;
 }

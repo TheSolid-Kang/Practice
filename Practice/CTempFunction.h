@@ -8,7 +8,7 @@ protected:
 	virtual void _InitSelectedFunc(void) = 0;
 	virtual void _Render(void) = 0;
 	virtual void _Render(const void* _p_void) = 0;
-	virtual void _Render(TString& _str) = 0;
+	virtual void _Render(TString _str) = 0;
 	virtual int _Update(int _event = 0) = 0;
 	virtual void _Release(void) = 0;
 };
@@ -36,7 +36,7 @@ protected:
 	virtual void _InitSelectedFunc(void) override;
 	virtual void _Render(void) override;
 	virtual void _Render(const void* _p_void) override;
-	virtual void _Render(TString& _str) override;
+	virtual void _Render(TString _str) override;
 	virtual int _Update(int _event = 0) override;
 	virtual void _Release(void) override;
 

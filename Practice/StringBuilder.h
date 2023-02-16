@@ -12,11 +12,14 @@ using TString = std::string;
 
 
 class StringBuilder {
+public:
+	StringBuilder() {}
+	StringBuilder(TString::size_type size) : _ScratchSize(size){}
 private:
 	TString _Main;
 	TString _Scratch;
 
-	const TString::size_type _ScratchSize = DEFAULT_CAP;  // 다른 임의의 숫자 넣어도 됨.
+	TString::size_type _ScratchSize = DEFAULT_CAP;  // 다른 임의의 숫자 넣어도 됨.
 
 public:
 	StringBuilder& append(const TString& str) {
@@ -46,4 +49,5 @@ public:
 		_Main.resize(0);
 		_Scratch.resize(0);
 	}
+	TString::size_type size() { return _Scratch.length(); }
 };

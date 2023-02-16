@@ -12,7 +12,7 @@ std::unique_ptr<sql::ResultSet> MySQL_DAO_v3::GetResultSet(const TString& _query
 		con = (*driver).connect("tcp://127.0.0.1:3306", "root", "root");
 		stmt = (*con).createStatement();
 		//(*con).setSchema(sql::SQLString(name.begin(), name.end()));
-		(*con).setSchema("pxxn");
+		(*con).setSchema("twomites");
 		std::unique_ptr<sql::ResultSet> uniq_res((*stmt).executeQuery(std::string(_query.begin(), _query.end())));
 		_uniq_res = std::move(uniq_res);
 	}
@@ -69,12 +69,13 @@ void MySQL_DAO_v3::Execute(const TString& _query)
 	sql::Driver* driver = nullptr;
 	sql::Connection* con = nullptr;
 	sql::Statement* stmt = nullptr;
+	std::string query = std::string(_query.begin(), _query.end());
 	driver = get_driver_instance();
 	try {
 		con = (*driver).connect("tcp://127.0.0.1:3306", "root", "root");
 		stmt = (*con).createStatement();
-		(*con).setSchema("test");
-		(*stmt).execute(std::string(_query.begin(), _query.end()));
+		(*con).setSchema("twomites");
+		(*stmt).execute(query);
 	}
 	catch (sql::SQLException _e) {
 		std::cout << "# ERR: SQLException in " << __FILE__;
@@ -110,7 +111,7 @@ bool MySQL_DAO_v3::ExecuteTransaction(std::vector<TString> _vec_query)
 	try {
 		con = (*driver).connect("tcp://127.0.0.1:3306", "root", "root");
 		stmt = (*con).createStatement();
-		(*con).setSchema("test");
+		(*con).setSchema("twomites");
 		stmt->execute("START TRANSACTION;");
 		for (auto _query : _vec_query)
 			(*stmt).execute(std::string(_query.begin(), _query.end()));

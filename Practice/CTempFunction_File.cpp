@@ -99,6 +99,7 @@ void CTempFunction_File::_InitSelectedFunc(void)
     }
 
     std::map<TString, int> mapTotalCount;
+
     //3. Console창에 각각의 파일에서 검색어 별 언급횟수 출력
     for (std::pair<TString, std::map<TString, int>> _pair_cnt : mapCount)
     {

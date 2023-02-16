@@ -230,4 +230,7 @@
       <Filter>00.main</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="EDIT.txt" />
+  </ItemGroup>
 </Project>
