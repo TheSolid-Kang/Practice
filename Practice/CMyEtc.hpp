@@ -15,16 +15,18 @@ using tistringstream = std::istringstream;
 class CMyEtc
 {
 public:
-	static std::vector<TString> Split(TString& str, TCHAR _delimiter)
+	static std::vector<TString> Split(TString& _str, TCHAR _delimiter)
 	{
-		std::vector<TString> vec_result;
-		vec_result.reserve(1024);
-		tistringstream iss(str);
-		TString str_buffer;
+		std::vector<TString> vecResult;
+		vecResult.reserve(1024);
+		tistringstream iss(_str);
+		TString buffer;
 
-		while (std::getline(iss, str_buffer, _delimiter))
-			vec_result.push_back(str_buffer);
-
-		return vec_result;
+		while (std::getline(iss, buffer, _delimiter))
+		{
+			vecResult.push_back(buffer);
+		}
+		return vecResult;
 	}
+
 };
