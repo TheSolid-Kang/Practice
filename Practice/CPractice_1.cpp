@@ -1,12 +1,10 @@
-#include "CForwardList.hpp"
 #include "CPractice_1.h"
-#include <forward_list>
-#include "CDoubleLinkedList.hpp"
+#include "CPP_DLL_Engine.h"
 
+using namespace std;
 CPractice_1::CPractice_1()
 	: m_uniq_map_func(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
 	, m_uniq_map_testfunc(std::make_unique<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>>())
-
 {
 }
 
@@ -17,10 +15,7 @@ CPractice_1::~CPractice_1()
 void CPractice_1::_Initialize()
 {
 	auto arr_title = _BuildArray(_T(" ")
-		, _T("1. foreard_list 예제")
-		, _T("2. ForwardList 구현")
-		, _T("3. DoubleLinkedList 예제")
-		, _T("4. DoubleLinkedList 구현")
+		, _T("")
 		, _T("")
 		, _T("")
 		, _T("99. EXIT")
@@ -30,7 +25,7 @@ void CPractice_1::_Initialize()
 	_InitSelectedFunc();
 }
 
-void CPractice_1::_Render() 
+void CPractice_1::_Render()
 {
 	std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&](const TString& _title) { std::tcout << _title << std::endl; });
 }
@@ -75,97 +70,61 @@ void CPractice_1::_InitFunc(void)
 {
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::ONE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			std::forward_list<int> forwardList;
-			forwardList.push_front(1);
-			forwardList.push_front(0);
-			forwardList.push_front(1);
-			forwardList.push_front(1);
-			forwardList.push_front(2);
-			forwardList.push_front(2);
-			forwardList.push_front(2);
-			forwardList.push_front(2);
-			forwardList.push_front(3);
-			forwardList.push_front(3);
-			forwardList.push_front(3);
-			forwardList.push_front(1);
+			//확인할 수 없는 외부기호라 하면서 안 됨.
+			// 왜 안 돼는지 이유를 모르겠음.
+			auto pStrBuil = CreateStringBuilder();
+			AppendLine(pStrBuil, _T("까꿍~"));
+			AppendLine(pStrBuil, _T("까꿍~"));
 
-			forwardList.pop_front();
+			std::tcout << ToString(pStrBuil) << std::endl;
 
-			forwardList.sort();
+			DeleteStringBuilder(pStrBuil);
 
-			forwardList.remove(1);
-			forwardList.remove_if([](auto _first) -> bool { return _first >= 3 ? true : false; });
-
-			auto iter = forwardList.begin();
-
-
-
-			forwardList.clear();
-
+			CStringBuilder strbuil;
+			strbuil.AppendLine(_T("까까꿍"));
+			std::tcout << strbuil.ToString() << std::endl;
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			CForwardList<int> forwardList;
-			forwardList.push_front(1);
-			forwardList.push_front(0);
-			forwardList.push_front(1);
-			forwardList.push_front(1);
-			forwardList.push_front(2);
-			forwardList.push_front(2);
-			forwardList.push_front(3);
-			forwardList.push_front(2);
-			forwardList.push_front(2);
-			forwardList.push_front(3);
-			forwardList.push_front(2);
-			forwardList.push_front(3);
-			forwardList.push_front(1);
-			auto num = forwardList.pop_front();
-			const auto num2 = forwardList.pop_front();
-			forwardList.push_front(forwardList.pop_front());
 
-			forwardList.sort();
+			auto split = [](std::string str, char _delimiter)
+			{
+				std::vector<std::string> vec_result;
+				vec_result.reserve(1024);
+				std::istringstream iss(str);
+				std::string str_buffer;
 
-			forwardList.remove(1);
-			forwardList.remove_if([](auto _first) -> bool { return _first >= 3 ? true : false; });
+				while (std::getline(iss, str_buffer, _delimiter))
+					vec_result.push_back(str_buffer);
 
-
+				return vec_result;
+			};
+			std::string str;
+			std::cin >> str;
+			std::vector<std::string> vecNum = split(str, ' ');
+			int answer = 0;
+			for (std::string _strNum : vecNum)
+			{
+				answer += stoi(_strNum);
+			}
+			std::cout << answer;
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::THREE),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-			auto path = CFileMgr::GetOpenFolderDialg(_T("C:\\"));
-			auto vec_file_name = CFIOMgr::GetRecursiveFilesInDirectory(path);
-			for (auto _file_name : vec_file_name)
+			std::string arrNum[3];
+			for (int i = 0; i < 3; ++i)
+				std::cin >> arrNum[i];
+
+			int answer = 0;
+			for (std::string _strNum : arrNum)
 			{
-				TCHAR* path = const_cast<TCHAR*>(_file_name.c_str());
-				std::tcout << CFileMgr::GetFileType(path) << std::endl;
+				answer += stoi(_strNum);
 			}
+			std::cout << answer;
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FOUR),
 		[&](const void* _p_void) -> std::shared_ptr<void> {
-
-			CDoubleLinkedList<int> doubleLinkedList;
-			doubleLinkedList.push_back(10);
-			doubleLinkedList.push_front(9);
-			doubleLinkedList.push_front(8);
-			doubleLinkedList.push_front(7);
-			doubleLinkedList.push_front(6);
-			doubleLinkedList.push_back(11);
-			doubleLinkedList.push_back(12);
-
-			std::cout << "pop_front : " << std::to_string(doubleLinkedList.pop_front()) << std::endl;
-			std::cout << "pop_front : " << std::to_string(doubleLinkedList.pop_front()) << std::endl;
-			std::cout << "pop_back : " << std::to_string(doubleLinkedList.pop_back()) << std::endl;
-			std::cout << "pop_back : " << std::to_string(doubleLinkedList.pop_back()) << std::endl;
-
-			doubleLinkedList.clear();
-
-			auto vec_file_name = CFileMgr::getTxtFiles(_T("C:\\Caleb\\CalebRecord"));
-			for (auto _file_name : vec_file_name)
-			{
-				TCHAR* path = const_cast<TCHAR*>(_file_name.c_str());
-				std::tcout << CFileMgr::GetFileType(path) << std::endl;
-			}
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::FIVE),
@@ -189,7 +148,7 @@ void CPractice_1::_InitSelectedFunc(void)
 			(*m_uniq_map_func)[static_cast<size_t>(FUNC::THREE)](nullptr);
 			return nullptr; }));
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::FOUR),
-		[&](const void* _p_void) -> std::shared_ptr<void> {			
+		[&](const void* _p_void) -> std::shared_ptr<void> {
 			(*m_uniq_map_func)[static_cast<size_t>(FUNC::FOUR)](nullptr);
 			return nullptr; }));
 	(*m_uniq_map_testfunc).emplace(std::make_pair(static_cast<size_t>(TEST_FUNC::FIVE),
