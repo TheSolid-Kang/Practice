@@ -1,0 +1,3 @@
+[submodule "CppDllEngine"]
+	path = CppDllEngine
+	url = https://github.com/TheSolid-Kang/CppDllEngine.git
