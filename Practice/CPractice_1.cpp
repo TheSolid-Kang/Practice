@@ -60,7 +60,7 @@ int CPractice_1::_Update(int _event)
 
 	return 0;
 }
-
+　
 void CPractice_1::_Release()
 {
 
