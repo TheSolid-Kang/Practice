@@ -1,8 +1,13 @@
+
+#ifdef _MY_MFC
+#include <afxwin.h>
+#elif _MY_WIN32API
 #include "Headers.h"
 #include "CPracticeMgr.h"
 #include "CTempFunctionMgr.h"
+#endif
 
-#pragma region WIN32API
+#ifdef _MY_WIN32API
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -36,7 +41,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		, NULL
 		, NULL
 		, hInstance
-		, NULL );
+		, NULL);
 
 	ShowWindow(hwnd, nCmdShow);
 
@@ -81,4 +86,43 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT massge, WPARAM wParam, LPARAM lPram)
 	return DefWindowProc(hwnd, massge, wParam, lPram);
 }
 
-#pragma endregion 
+
+#elif _MY_MFC
+class CMain : public CWinApp
+{
+public:
+	virtual BOOL InitInstance();
+};
+class CMainFrame : public CFrameWnd
+{
+public:
+	CMainFrame();
+	~CMainFrame();
+
+protected:
+	//fx == function
+	//application framework
+	afx_msg void OnPaint();
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	DECLARE_MESSAGE_MAP();
+};
+
+BOOL CMain::InitInstance()
+{
+	return 0;
+}
+
+CMainFrame::CMainFrame()
+{
+}
+
+CMainFrame::~CMainFrame()
+{
+}
+void CMainFrame::OnPaint()
+{
+}
+void CMainFrame::OnLButtonDown(UINT nFlags, CPoint point)
+{
+}
+#endif

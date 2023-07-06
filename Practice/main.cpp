@@ -1,12 +1,13 @@
 #include "Headers.h"
 #include "CPracticeMgr.h"
 #include "CTempFunctionMgr.h"
+#include <prsht.h>
 
 const int EXIT = 99;
 void PrintTitle(int _selected_mgr = 0);
 
 #pragma region
-enum class SELECTED_MGR : int { PRACTICE = 1, TEMP_FUNCTION, END};
+enum class SELECTED_MGR : int { PRACTICE = 1, TEMP_FUNCTION, END };
 int main() {
 #if UNICODE
 	std::locale::global(std::locale(".UTF-8"));
@@ -31,7 +32,7 @@ int main() {
 				practice_instance.SetPractice(num);
 			} while (practice_instance.Execute() != -1);
 		}
-		else if(static_cast<int>(SELECTED_MGR::TEMP_FUNCTION) == selected_mgr)
+		else if (static_cast<int>(SELECTED_MGR::TEMP_FUNCTION) == selected_mgr)
 		{
 			do {
 				PrintTitle(selected_mgr);
@@ -45,6 +46,7 @@ int main() {
 	practice_instance.DestroyInstance();
 	tfunction_instance.DestroyInstance();
 	return EXIT_SUCCESS;
+	//PropertySheet ps = CreatePropertySheetPage("  ");
 }
 #pragma endregion CONSOLE
 

@@ -1,15 +1,15 @@
 #pragma once
 #include "CPractice.h"
-class CPractice_2 : 
+class CPractice_2 :
 	public CPractice
 {
-public: 
+public:
 	CPractice_2();
 	~CPractice_2();
 
 private:
 	enum class FUNC : int { ONE = 1, TWO, THREE, FOUR, FIVE };
-	enum class TEST_FUNC : int { ONE = 1, TWO, THREE, FOUR, FIVE};
+	enum class TEST_FUNC : int { ONE = 1, TWO, THREE, FOUR, FIVE };
 	std::unique_ptr<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>> m_uniq_map_func;
 	std::unique_ptr<std::map<size_t, std::function<std::shared_ptr<void>(const void*)>>> m_uniq_map_testfunc;
 

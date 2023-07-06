@@ -1,7 +1,7 @@
 #pragma once
 #include "CTempFunction.h"
 class CTempFunction_CodingTest :
-    public CTempFunction
+	public CTempFunction
 {
 public:
 	CTempFunction_CodingTest();

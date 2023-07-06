@@ -1,7 +1,7 @@
 #pragma once
 #include "CTempFunction.h"
 class CTempFunction_Server :
-    public CTempFunction
+	public CTempFunction
 {
 public:
 	CTempFunction_Server();
@@ -24,7 +24,7 @@ private:
 		, END
 	};
 	TString m_PIPE_NAME;
-	
+
 private:
 	// ITempFunction을(를) 통해 상속됨
 	virtual void _Initialize(void) override;

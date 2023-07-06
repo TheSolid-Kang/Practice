@@ -51,7 +51,7 @@ void CTempFunction::_Render(TString _str)
 	std::tcout << _str << std::endl;
 }
 
-int CTempFunction::_Update(int _event )
+int CTempFunction::_Update(int _event)
 {
 	return 0;
 }

@@ -94,6 +94,9 @@
     <Filter Include="96.CUnitTest">
       <UniqueIdentifier>{42a29c16-7553-438f-becb-f040fe906de1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.CDataStructure\02.CTree">
+      <UniqueIdentifier>{893899b3-09b2-4c2e-b277-c159f4476320}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPractice.cpp">
@@ -149,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="CUnitTest.cpp">
       <Filter>96.CUnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="CTree.cpp">
+      <Filter>03.CDataStructure\02.CTree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,11 +230,15 @@
     <ClInclude Include="CUnitTest.h">
       <Filter>96.CUnitTest</Filter>
     </ClInclude>
+    <ClInclude Include="CTree.h">
+      <Filter>03.CDataStructure\02.CTree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd">
       <Filter>00.main</Filter>
     </None>
+    <None Include="PropertySheet.props" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="EDIT.txt" />

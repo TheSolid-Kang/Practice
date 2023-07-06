@@ -7,16 +7,16 @@ class CDoubleLinkedList
 	struct node
 	{
 		node()
-		: m_Val(NULL)
-		, m_prevNode(nullptr)
-		, m_nextNode(nullptr) {}
+			: m_Val(NULL)
+			, m_prevNode(nullptr)
+			, m_nextNode(nullptr) {}
 		node(const T& _Val, node* _prevNode, node* _nextNode)
 			: m_Val(_Val)
 			, m_prevNode(_prevNode)
 			, m_nextNode(_nextNode) {}
-		~node(){}
+		~node() {}
 		T m_Val;
-		node* m_nextNode ;
+		node* m_nextNode;
 		node* m_prevNode;
 	};
 
@@ -44,7 +44,7 @@ public:
 
 	void sort(std::function<bool(T, T)> _PredicateFunction
 		= [](T _Val1, T _Val2) -> bool
-		{return _Val1 >= _Val2 ? true : false; });
+		{return (_Val1 >= _Val2) ? true : false; });
 
 	void remove_if(std::function<bool(T)> _PredicateFunction);
 	void remove(const T& _Val);
@@ -59,7 +59,7 @@ inline CDoubleLinkedList<T>::CDoubleLinkedList()
 	, m_endNode(nullptr)
 	, m_curSize(0)
 {
-	
+
 }
 
 template<typename T>
@@ -134,6 +134,7 @@ inline T CDoubleLinkedList<T>::pop_back()
 template<typename T>
 inline void CDoubleLinkedList<T>::sort(std::function<bool(T, T)> _PredicateFunction)
 {
+
 }
 
 template<typename T>

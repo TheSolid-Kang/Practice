@@ -9,7 +9,7 @@ template<typename T>
 struct node
 {
 	node() : m_Val(NULL), m_nextNode(nullptr) {}
-	node(const T& _Val): m_Val(_Val), m_nextNode(nullptr){}
+	node(const T& _Val) : m_Val(_Val), m_nextNode(nullptr) {}
 
 	T m_Val;
 	node* m_nextNode;
@@ -23,11 +23,11 @@ public:
 	using iterator_category = std::forward_iterator_tag;
 
 
-	using _Nodeptr				= typename _Mylist::_Nodeptr;
-	using value_type			= typename _Mylist::value_type;
+	using _Nodeptr = typename _Mylist::_Nodeptr;
+	using value_type = typename _Mylist::value_type;
 	using difference_type = typename _Mylist::difference_type;
-	using pointer					= typename _Mylist::const_pointer;
-	using reference				= const value_type&;
+	using pointer = typename _Mylist::const_pointer;
+	using reference = const value_type&;
 
 	_Flist_unchecked_const_iterator() noexcept : _Ptr() {}
 
@@ -240,7 +240,7 @@ template<typename T>
 class CForwardList
 {
 public:
-	CForwardList(): m_rootNode(nullptr) {}
+	CForwardList() : m_rootNode(nullptr) {}
 	CForwardList(const CForwardList& _forwardList) : m_rootNode(nullptr)
 	{
 		//230126 begin, end 구현 후 작업 할 예정
@@ -265,11 +265,11 @@ public:
 
 	const size_t size() const { return m_curSize; }
 
-	void sort(std::function<bool (T, T)> _PredicateFunction 
-		= [](T _Val1, T _Val2) -> bool 
+	void sort(std::function<bool(T, T)> _PredicateFunction
+		= [](T _Val1, T _Val2) -> bool
 		{return _Val1 >= _Val2 ? true : false; });
 
-	void remove_if(std::function<bool (T)> _PredicateFunction);
+	void remove_if(std::function<bool(T)> _PredicateFunction);
 	void remove(const T& _Val);
 	void remove(T&& _Val);
 
@@ -278,7 +278,7 @@ public:
 
 	void clear();
 
-	
+
 };
 
 /// <summary>
@@ -361,12 +361,12 @@ inline void CForwardList<T>::clear()
 /// <typeparam name="T"></typeparam>
 /// <param name="_PredicateFunction"></param>
 template<typename T>
-inline void CForwardList<T>::sort( std::function<bool (T, T)> _PredicateFunction )
+inline void CForwardList<T>::sort(std::function<bool(T, T)> _PredicateFunction)
 {
 	auto curSize = m_curSize;
 	std::vector<T> vec;
 	vec.reserve(curSize);
-	while(m_rootNode != nullptr)
+	while (m_rootNode != nullptr)
 		vec.emplace_back(pop_front());
 
 	for (size_t i = 1; i < curSize; ++i) {
@@ -378,7 +378,7 @@ inline void CForwardList<T>::sort( std::function<bool (T, T)> _PredicateFunction
 			}
 		}
 	}
-	std::for_each(vec.cbegin(), vec.cend(), [&](const T& _Val) {push_front(_Val); } );
+	std::for_each(vec.cbegin(), vec.cend(), [&](const T& _Val) {push_front(_Val); });
 
 }
 /// <summary>
@@ -392,7 +392,7 @@ inline void CForwardList<T>::remove_if(std::function<bool(T)> _PredicateFunction
 	auto curNode = m_rootNode;
 	while (curNode->m_nextNode != nullptr)
 	{
-		if (true == _PredicateFunction(curNode->m_nextNode->m_Val) )
+		if (true == _PredicateFunction(curNode->m_nextNode->m_Val))
 		{
 			auto deleteNode = curNode->m_nextNode;
 			curNode->m_nextNode = curNode->m_nextNode->m_nextNode;

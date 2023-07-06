@@ -6,14 +6,17 @@ using TString = std::wstring;
 #define to_tstring   to_wstring
 #else
 using TString = std::string;
-#define to_tstring   to_stringusing TString = std::string;
+#define to_tstring   to_string
+using TString = std::string;
 #endif;
 CTempFunction_File::CTempFunction_File()
 {
+
 }
 
 CTempFunction_File::~CTempFunction_File()
 {
+
 }
 
 void CTempFunction_File::_Initialize()
@@ -48,7 +51,7 @@ void CTempFunction_File::_InitFunc(void)
     return nullptr; }));
   m_map_func.emplace(std::make_pair(static_cast<size_t>(FUNC::GET_FILE_LIST), [&](const void* _p_void) -> std::shared_ptr<void> {
     TCHAR* fileType = ((TCHAR*)(_p_void));
-    TString directoryPath = CFileMgr::GetOpenFolderDialg(_T("D:\\Export-5ec8052c-bcec-4546-b41d-bdb62320c53f"));
+    TString directoryPath = CFileMgr::GetOpenFolderDialg(_T("D:\\TheSolid_KANG\\Export-aa366e9e-ed18-45f1-bd9e-76939f7b003a"));
     auto vecFiles = CFileMgr::GetRecursiveFilesInDirectory(directoryPath);
 
     std::list<TString> listFiles(vecFiles.begin(), vecFiles.end());

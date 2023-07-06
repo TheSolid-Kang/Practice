@@ -14,12 +14,12 @@ private:
 
 public:
 	void SetPractice(const int& _practice_num) noexcept;
-	int Execute(std::function<void (void)> _func) {
+	int Execute(std::function<void(void)> _func) {
 		_func();
 		return Execute();
 	}
 	int Execute();
 
-	
+
 };
 

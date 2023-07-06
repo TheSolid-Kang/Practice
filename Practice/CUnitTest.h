@@ -1,6 +1,6 @@
 #pragma once
 
-class IUnitTest 
+class IUnitTest
 {
 
 };
