@@ -109,20 +109,32 @@ protected:
 
 BOOL CMain::InitInstance()
 {
-	return 0;
+	m_pMainWnd = new CMainFrame();
+	(*m_pMainWnd).ShowWindow(m_nCmdShow);
+	return TRUE;
 }
 
 CMainFrame::CMainFrame()
 {
+	Create(NULL, _T("HellowMFC"));
 }
 
 CMainFrame::~CMainFrame()
 {
+
 }
 void CMainFrame::OnPaint()
 {
+	CPaintDC dc(this);
+	const TCHAR* msg = _T("Hellow MFC");
+	dc.TextOut(100, 100, msg, lstrlen(msg));
 }
 void CMainFrame::OnLButtonDown(UINT nFlags, CPoint point)
 {
+	MessageBox(_T("AKDNTM ZMFFLR!"), _T("마우스 메시지"));
 }
+BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
+	ON_WM_PAINT()
+	ON_WM_LBUTTONDOWN()
+END_MESSAGE_MAP()
 #endif
