@@ -14,6 +14,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
+#*.dll
 
 # Fortran module files
 *.mod
@@ -23,20 +24,14 @@
 *.lai
 *.la
 *.a
+*.lib
 
 # Executables
 *.exe
 *.out
 *.app
 
-# KANG
 .vs/
-bin/
-
-
-# 프로젝트 파일 내 중간 출력물 삭제
-Practice/x64/
-MySQL_DAO_v2/x64/
-PracticeGoogleUnitTest/x64/
 
 x64/
+x86/
