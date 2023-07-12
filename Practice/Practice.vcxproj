@@ -237,14 +237,14 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MY_MFC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);%(PreprocessorDefinitions);%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%BOOST_ROOT%;D:\TheSolid_KANG\C++\C++DLL\CPP_DLL_Engine\CPP_DLL\x64\header\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%BOOST_ROOT%</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%BOOST_ROOT%\stage\lib;D:\TheSolid_KANG\C++\C++DLL\CPP_DLL_Engine\CPP_DLL\x64\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CPP_DLL_ENGINE.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%BOOST_ROOT%\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>if exist "$(TargetDir)\baekjoon" del "$(TargetDir)\baekjoon\*";

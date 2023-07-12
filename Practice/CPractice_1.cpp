@@ -1,5 +1,4 @@
 #include "CPractice_1.h"
-#include "CPP_DLL_Engine.h"
 
 using namespace std;
 CPractice_1::CPractice_1()
@@ -72,17 +71,6 @@ void CPractice_1::_InitFunc(void)
 		[&](const void* _p_void) -> std::shared_ptr<void> {
 			//확인할 수 없는 외부기호라 하면서 안 됨.
 			// 왜 안 돼는지 이유를 모르겠음.
-			auto pStrBuil = CreateStringBuilder();
-			AppendLine(pStrBuil, _T("까꿍~"));
-			AppendLine(pStrBuil, _T("까꿍~"));
-
-			std::tcout << ToString(pStrBuil) << std::endl;
-
-			DeleteStringBuilder(pStrBuil);
-
-			CStringBuilder strbuil;
-			strbuil.AppendLine(_T("까까꿍"));
-			std::tcout << strbuil.ToString() << std::endl;
 
 			return nullptr; }));
 	(*m_uniq_map_func).emplace(std::make_pair(static_cast<size_t>(FUNC::TWO),

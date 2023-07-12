@@ -88,11 +88,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT massge, WPARAM wParam, LPARAM lPram)
 
 
 #elif _MY_MFC
+//initiate application program class
 class CMain : public CWinApp
 {
 public:
 	virtual BOOL InitInstance();
 };
+//initiate main window class
 class CMainFrame : public CFrameWnd
 {
 public:
@@ -102,10 +104,14 @@ public:
 protected:
 	//fx == function
 	//application framework
+	//tx == treatment
+	//rx == receiver
+	//tx == transfer
 	afx_msg void OnPaint();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	DECLARE_MESSAGE_MAP();
 };
+CMain theApp;
 
 BOOL CMain::InitInstance()
 {
@@ -131,7 +137,7 @@ void CMainFrame::OnPaint()
 }
 void CMainFrame::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	MessageBox(_T("AKDNTM ZMFFLR!"), _T("마우스 메시지"));
+	MessageBox(_T("마우스 메시지!"), _T("마우스 메시지"));
 }
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_PAINT()
