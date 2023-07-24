@@ -1,6 +1,9 @@
 #include "CTempFunction_File.h"
 #include <list>
-
+#include "CFileMgr.h"
+#include "CINIMgr.h"
+#include "CFIOMgr.h"
+#include "KMP.h"
 #if UNICODE 
 using TString = std::wstring;
 #define to_tstring   to_wstring
@@ -84,7 +87,7 @@ void CTempFunction_File::_InitSelectedFunc(void)
     //1. 검색어 설정
     //auto search_key = CIO::ask_and_return_string(); //잘 안 됨.
     TString arrKeword = CINIMgr::GetPrivateProfileString_INI(_T("SET"), _T("ARR_KEYWORD"), CFileMgr::GetEXEFilePath() + _T("\\FILE\\Setting.ini"));
-    auto vecKeyword = CMyEtc::Split(arrKeword, _T('|'));
+    auto vecKeyword = StringEditor::Split(arrKeword, _T('|'));
 
     //2. 각각의 파일들 내에서 검색 횟수 확인
     //  1) 컨테이너에서 caleb_path 선택

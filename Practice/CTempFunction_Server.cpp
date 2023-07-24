@@ -1,4 +1,9 @@
 #include "CTempFunction_Server.h"
+#include "CFileMgr.h"
+#include "CINIMgr.h"
+#include "CFIOMgr.h"
+#include "KMP.h"
+
 #define PIPE_NAME "\\\\.\\pipe\\echo"
 #define BUF_SIZE 32768
 

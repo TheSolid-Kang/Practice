@@ -55,27 +55,6 @@
     <Filter Include="00.main\01.WinMain">
       <UniqueIdentifier>{ab937777-f81b-424b-95ab-ac5be7782f01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="98.Headers\00.CFileMgr">
-      <UniqueIdentifier>{33e3de6d-5396-43a2-bf7f-9f4d61376725}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\01.CFIOMgr">
-      <UniqueIdentifier>{baf6751b-0d37-4fa4-9c62-94ffe47cf8e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\02.CINIMgr">
-      <UniqueIdentifier>{f6439e07-2281-4d09-9e69-92d4e5b30570}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\03.KMP">
-      <UniqueIdentifier>{ba5740f8-1839-47ea-9a0e-76ceda89419c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\04.CStringBuilder">
-      <UniqueIdentifier>{d6e7ee65-01d7-46ca-bc37-b0a756f87aa5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\05.CMyEtc">
-      <UniqueIdentifier>{2be3e9c4-ba74-4c21-9330-8fb3ac6521f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\06.CIO">
-      <UniqueIdentifier>{7f4d47aa-defa-4e57-963a-9c03b2158ffb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03.CDataStructure">
       <UniqueIdentifier>{edace903-5101-4901-aa1c-258660ab9621}</UniqueIdentifier>
     </Filter>
@@ -84,9 +63,6 @@
     </Filter>
     <Filter Include="03.CDataStructure\01.CDoubleLinkedList">
       <UniqueIdentifier>{3f528010-3ebc-44f9-806c-f09b34f048e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\07.CLogger">
-      <UniqueIdentifier>{94d77953-1a2a-4ca0-b8c0-7c0e717d9393}</UniqueIdentifier>
     </Filter>
     <Filter Include="04.CAlgorithm">
       <UniqueIdentifier>{748dd51f-5692-460d-9b8a-2abcff420ca5}</UniqueIdentifier>
@@ -135,26 +111,20 @@
     <ClCompile Include="WinMain.cpp">
       <Filter>00.main\01.WinMain</Filter>
     </ClCompile>
-    <ClCompile Include="CFileMgr.cpp">
-      <Filter>98.Headers\00.CFileMgr</Filter>
-    </ClCompile>
-    <ClCompile Include="CFIOMgr.cpp">
-      <Filter>98.Headers\01.CFIOMgr</Filter>
-    </ClCompile>
-    <ClCompile Include="CINIMgr.cpp">
-      <Filter>98.Headers\02.CINIMgr</Filter>
-    </ClCompile>
-    <ClCompile Include="KMP.cpp">
-      <Filter>98.Headers\03.KMP</Filter>
-    </ClCompile>
-    <ClCompile Include="StringBuilder.cpp">
-      <Filter>98.Headers\04.CStringBuilder</Filter>
-    </ClCompile>
     <ClCompile Include="CUnitTest.cpp">
       <Filter>96.CUnitTest</Filter>
     </ClCompile>
     <ClCompile Include="CTree.cpp">
       <Filter>03.CDataStructure\02.CTree</Filter>
+    </ClCompile>
+    <ClCompile Include="CHashMap.cpp">
+      <Filter>98.Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="CLogger.cpp">
+      <Filter>98.Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="KMP.cpp">
+      <Filter>98.Headers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,12 +136,6 @@
     </ClInclude>
     <ClInclude Include="DEFINE_MGR.hpp">
       <Filter>97.DesignPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="Enum.h">
-      <Filter>98.Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers.h">
-      <Filter>98.Headers</Filter>
     </ClInclude>
     <ClInclude Include="CPractice_1.h">
       <Filter>01.CPractice\00.CPractice_1</Filter>
@@ -197,41 +161,56 @@
     <ClInclude Include="CTempFunction_Client.h">
       <Filter>02.CTempFunction\03.CTempFunction_Client</Filter>
     </ClInclude>
-    <ClInclude Include="CFileMgr.hpp">
-      <Filter>98.Headers\00.CFileMgr</Filter>
-    </ClInclude>
-    <ClInclude Include="CFIOMgr.hpp">
-      <Filter>98.Headers\01.CFIOMgr</Filter>
-    </ClInclude>
-    <ClInclude Include="CINIMgr.hpp">
-      <Filter>98.Headers\02.CINIMgr</Filter>
-    </ClInclude>
-    <ClInclude Include="KMP.h">
-      <Filter>98.Headers\03.KMP</Filter>
-    </ClInclude>
-    <ClInclude Include="StringBuilder.h">
-      <Filter>98.Headers\04.CStringBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="CMyEtc.hpp">
-      <Filter>98.Headers\05.CMyEtc</Filter>
-    </ClInclude>
-    <ClInclude Include="CIO.hpp">
-      <Filter>98.Headers\06.CIO</Filter>
-    </ClInclude>
     <ClInclude Include="CForwardList.hpp">
       <Filter>03.CDataStructure\00.CForwardList</Filter>
     </ClInclude>
     <ClInclude Include="CDoubleLinkedList.hpp">
       <Filter>03.CDataStructure\01.CDoubleLinkedList</Filter>
     </ClInclude>
-    <ClInclude Include="CLogger.hpp">
-      <Filter>98.Headers\07.CLogger</Filter>
-    </ClInclude>
     <ClInclude Include="CUnitTest.h">
       <Filter>96.CUnitTest</Filter>
     </ClInclude>
     <ClInclude Include="CTree.h">
       <Filter>03.CDataStructure\02.CTree</Filter>
+    </ClInclude>
+    <ClInclude Include="CFileMgr.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CFIOMgr.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CHashMap.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CINIMgr.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CIO.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CLogger.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyEtc.hpp">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DEFAULT_MGR.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="KMP.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuilder.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="StringEditor.h">
+      <Filter>98.Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

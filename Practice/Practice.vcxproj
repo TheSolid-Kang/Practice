@@ -272,9 +272,8 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CINIMgr.cpp" />
-    <ClCompile Include="CFileMgr.cpp" />
-    <ClCompile Include="CFIOMgr.cpp" />
+    <ClCompile Include="CHashMap.cpp" />
+    <ClCompile Include="CLogger.cpp" />
     <ClCompile Include="CPractice.cpp" />
     <ClCompile Include="CPracticeMgr.cpp" />
     <ClCompile Include="CPractice_1.cpp" />
@@ -289,17 +288,17 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClCompile Include="CUnitTest.cpp" />
     <ClCompile Include="KMP.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="StringBuilder.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CDoubleLinkedList.hpp" />
-    <ClInclude Include="CFileMgr.hpp" />
-    <ClInclude Include="CFIOMgr.hpp" />
+    <ClInclude Include="CFileMgr.h" />
+    <ClInclude Include="CFIOMgr.h" />
     <ClInclude Include="CForwardList.hpp" />
-    <ClInclude Include="CINIMgr.hpp" />
-    <ClInclude Include="CIO.hpp" />
-    <ClInclude Include="CLogger.hpp" />
+    <ClInclude Include="CHashMap.h" />
+    <ClInclude Include="CINIMgr.h" />
+    <ClInclude Include="CIO.h" />
+    <ClInclude Include="CLogger.h" />
     <ClInclude Include="CMyEtc.hpp" />
     <ClInclude Include="CPractice.h" />
     <ClInclude Include="CPracticeMgr.h" />
@@ -313,11 +312,13 @@ xcopy /E /Y "$(SolutionDir)baekjoon" "$(TargetDir)\baekjoon\*";</Command>
     <ClInclude Include="CTempFunction_Server.h" />
     <ClInclude Include="CTree.h" />
     <ClInclude Include="CUnitTest.h" />
+    <ClInclude Include="DEFAULT_MGR.h" />
     <ClInclude Include="DEFINE_MGR.hpp" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="KMP.h" />
     <ClInclude Include="StringBuilder.h" />
+    <ClInclude Include="StringEditor.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">

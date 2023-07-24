@@ -1,5 +1,6 @@
 #include "CTempFunction.h"
 #include <crtdbg.h>
+#include "StringBuilder.h"
 #if _DEBUG
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 #define malloc(s) _malloc_dbg(s, _NORMAL_BLOCK, __FILE__, __LINE__)
@@ -24,7 +25,7 @@ void CTempFunction::_InitFunc(void)
 {
 	m_map_func.emplace(std::make_pair(static_cast<size_t>(COMMON_FUNC::PRINT_TITLE), [&](const void* _p_void) -> std::shared_ptr<void> {
 		StringBuilder str_buil;
-		std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&str_buil](const TString& _ch_page) { str_buil.append_endl(_ch_page); });
+		std::for_each(m_list_title.cbegin(), m_list_title.cend(), [&str_buil](const TString& _ch_page) { str_buil.Append_endl(_ch_page); });
 		TString title = str_buil.str();
 		auto shar_title = std::make_shared<TString>(title);
 		return shar_title;

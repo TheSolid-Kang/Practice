@@ -1,6 +1,6 @@
 #pragma once
 #include "Headers.h"
-#include "DEFINE_MGR.hpp"
+#include "DEFAULT_MGR.h"
 #include "CPractice.h"
 
 class CPracticeMgr
